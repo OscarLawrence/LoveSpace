@@ -3,10 +3,10 @@ Core coherence validation engine - extracted and adapted from OM validation comp
 This is the foundation that enables building coherent tools.
 """
 
-from typing import List, Dict, Any, Optional, Tuple
+import re
 from dataclasses import dataclass
 from enum import Enum
-import re
+from typing import Any, Dict, List, Optional, Tuple
 
 
 class CoherenceLevel(Enum):

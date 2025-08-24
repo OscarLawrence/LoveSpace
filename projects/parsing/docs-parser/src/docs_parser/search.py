@@ -1,7 +1,8 @@
 """Web search integration using Google Serper and Tavily APIs."""
 
 import os
-from typing import List, Dict, Any
+from typing import Any, Dict, List
+
 from dotenv import load_dotenv
 
 # Load environment variables

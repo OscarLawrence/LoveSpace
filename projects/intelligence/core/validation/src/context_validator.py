@@ -1,7 +1,8 @@
 """Context completeness validation - 200 LOC max"""
 
 import re
-from typing import Dict, List, Set, Optional, Any
+from typing import Any, Dict, List, Optional, Set
+
 from .models import ContextCompleteness, ValidationResult, ValidationStatus
 
 

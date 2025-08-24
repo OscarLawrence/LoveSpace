@@ -4,13 +4,13 @@ Main integration manager using modular components
 
 import asyncio
 import time
-from typing import Dict, List, Any, Optional, Callable, Set
 from collections import defaultdict
 from pathlib import Path
+from typing import Any, Callable, Dict, List, Optional, Set
 
-from .data_models import ProjectIntegration, IntegrationStatus
-from .project_discovery import ProjectDiscovery
+from .data_models import IntegrationStatus, ProjectIntegration
 from .hook_factory import HookFactory
+from .project_discovery import ProjectDiscovery
 from .system_manager import SystemManager
 
 

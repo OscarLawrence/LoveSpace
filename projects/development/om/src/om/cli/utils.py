@@ -25,6 +25,7 @@ def _check_code_parser():
         try:
             # Only check essential components
             from code_parser.python_parser import PythonCodeParser
+
             from knowledge.db_manager import ContextDB
             CODE_PARSER_AVAILABLE = True
         except ImportError:

@@ -5,13 +5,14 @@ Micro-module with formal contracts for statistical edge detection.
 """
 
 import sys
-from pathlib import Path
-from typing import List, Dict, Optional, Tuple
 from dataclasses import dataclass
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
 
 # Add formal contracts
 sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent / "MomoAI/projects/coherence/formal_contracts"))
-from contract_language import coherence_contract, ComplexityClass
+from contract_language import ComplexityClass, coherence_contract
+
 
 @dataclass
 class MarketData:

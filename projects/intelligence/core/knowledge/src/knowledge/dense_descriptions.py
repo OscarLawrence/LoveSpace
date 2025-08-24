@@ -2,7 +2,8 @@
 
 import ast
 import re
-from typing import Dict, List, Set, Optional
+from typing import Dict, List, Optional, Set
+
 from .db_manager import Function, Pattern
 
 

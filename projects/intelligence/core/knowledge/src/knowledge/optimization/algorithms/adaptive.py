@@ -3,11 +3,11 @@ Adaptive optimization algorithm combining multiple approaches
 """
 
 import asyncio
-from typing import Dict, Any
+from typing import Any, Dict
 
 from ..data_models import OptimizationContext, OptimizationDecision
-from .gradient_descent import GradientDescentOptimizer
 from .bayesian import BayesianOptimizer
+from .gradient_descent import GradientDescentOptimizer
 
 
 class AdaptiveOptimizer:

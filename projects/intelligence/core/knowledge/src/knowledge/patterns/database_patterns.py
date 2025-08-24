@@ -1,6 +1,7 @@
 """Database and data management patterns."""
 
 from typing import List
+
 from ..db_manager import Pattern
 
 

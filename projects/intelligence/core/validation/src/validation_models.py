@@ -3,8 +3,8 @@ Data models for validation system components.
 """
 
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Any
 from enum import Enum
+from typing import Any, Dict, List, Optional
 
 
 class SeverityLevel(Enum):

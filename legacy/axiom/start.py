@@ -5,9 +5,10 @@ Simple script to start the FastAPI backend server
 """
 
 import os
-import sys
 import subprocess
+import sys
 from pathlib import Path
+
 
 def check_requirements():
     """Check if all requirements are met"""

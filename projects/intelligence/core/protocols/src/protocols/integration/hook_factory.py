@@ -2,7 +2,7 @@
 Hook factory for creating integration monitoring hooks
 """
 
-from typing import Callable, Any, Optional
+from typing import Any, Callable, Optional
 
 
 class HookFactory:

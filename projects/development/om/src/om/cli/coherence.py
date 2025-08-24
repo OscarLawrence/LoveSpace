@@ -1,9 +1,11 @@
 """Coherence CLI commands."""
 
-import click
 import json
 from pathlib import Path
-from ..coherent_api import CoherentUpdateEngine, CoherentFileManager, get_api_key
+
+import click
+
+from ..coherent_api import CoherentFileManager, CoherentUpdateEngine, get_api_key
 
 
 @click.group()

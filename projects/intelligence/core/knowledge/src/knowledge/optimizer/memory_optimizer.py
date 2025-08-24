@@ -2,14 +2,14 @@
 Main memory integrated optimizer class
 """
 
-from typing import Dict, List, Any, Optional
 from pathlib import Path
+from typing import Any, Dict, List, Optional
 
-from .pattern_storage import PatternStorage
-from .session_manager import SessionManager
-from .recommendation_engine import RecommendationEngine
-from .memory_consolidation import MemoryConsolidation
 from .analysis import PerformanceAnalyzer
+from .memory_consolidation import MemoryConsolidation
+from .pattern_storage import PatternStorage
+from .recommendation_engine import RecommendationEngine
+from .session_manager import SessionManager
 
 
 class MemoryIntegratedOptimizer:

@@ -2,8 +2,8 @@
 Data models for integration examples
 """
 
-from typing import List
 from dataclasses import dataclass
+from typing import List
 
 
 @dataclass

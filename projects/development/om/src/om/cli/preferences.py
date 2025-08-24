@@ -1,6 +1,7 @@
 """User preferences management commands."""
 
 import click
+
 from .utils import _check_memory
 
 

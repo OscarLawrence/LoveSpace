@@ -4,7 +4,8 @@ Service discovery and registry management
 
 import asyncio
 import time
-from typing import Dict, List, Any
+from typing import Any, Dict, List
+
 from .data_models import ServiceInfo, ServiceStatus
 
 

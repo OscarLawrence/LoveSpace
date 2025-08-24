@@ -3,10 +3,10 @@ Monitoring Dashboard - Unified monitoring interface
 Real-time visualization of workspace performance and optimization
 """
 
-import time
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass
 import json
+import time
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
 
 
 @dataclass

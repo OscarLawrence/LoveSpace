@@ -6,9 +6,9 @@ Handles dense/natural/verbose formatting with smart defaults and fallbacks.
 
 import os
 import re
-from enum import Enum
-from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
+from enum import Enum
+from typing import Any, Dict, List, Optional
 
 
 class FormatType(Enum):

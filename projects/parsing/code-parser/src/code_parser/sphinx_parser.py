@@ -12,7 +12,7 @@ from sphinx.application import Sphinx
 from sphinx.ext.autodoc import ClassDocumenter, FunctionDocumenter
 from sphinx.util.docutils import docutils_namespace
 
-from knowledge.db_manager import ContextDB, Function, Class, Pattern
+from knowledge.db_manager import Class, ContextDB, Function, Pattern
 
 
 class SphinxCodeParser:

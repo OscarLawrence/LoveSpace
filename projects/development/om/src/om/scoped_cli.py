@@ -3,12 +3,13 @@
 Integrates agent scoping system with Click CLI for reduced cognitive load.
 """
 
-import click
-from typing import List, Optional
-from pathlib import Path
 import sys
+from pathlib import Path
+from typing import List, Optional
 
-from .agent_scoping import ScopeManager, ScopeContext, create_scope_context
+import click
+
+from .agent_scoping import ScopeContext, ScopeManager, create_scope_context
 
 
 class ScopedCLI:

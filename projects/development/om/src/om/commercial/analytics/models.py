@@ -1,8 +1,8 @@
 """Analytics data models and metrics."""
 
 import datetime
-from typing import Optional
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass

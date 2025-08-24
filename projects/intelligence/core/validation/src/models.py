@@ -1,8 +1,8 @@
 """Core data models for validation system - 150 LOC max"""
 
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Any, Set
 from enum import Enum
+from typing import Any, Dict, List, Optional, Set
 
 
 class ValidationStatus(Enum):

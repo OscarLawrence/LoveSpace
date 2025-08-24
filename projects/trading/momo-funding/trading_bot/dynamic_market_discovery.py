@@ -5,12 +5,13 @@ Real-time discovery of optimal trading pairs based on current market conditions.
 """
 
 import sys
-from pathlib import Path
-from typing import List, Dict, Optional, Tuple
-from dataclasses import dataclass
 import time
-import requests
+from dataclasses import dataclass
 from datetime import datetime, timedelta
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+import requests
 
 # Add module paths
 current_dir = Path(__file__).parent
@@ -20,7 +21,8 @@ from execution.binance_connector import create_binance_connector
 
 # Add formal contracts
 sys.path.insert(0, str(current_dir.parent.parent / "MomoAI/projects/coherence/formal_contracts"))
-from contract_language import coherence_contract, ComplexityClass
+from contract_language import ComplexityClass, coherence_contract
+
 
 @dataclass
 class MarketAsset:

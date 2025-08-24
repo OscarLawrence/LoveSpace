@@ -4,14 +4,15 @@ Position Sizing - Mathematical Risk Management
 Micro-module implementing Kelly Criterion with volatility adjustments.
 """
 
+import math
 import sys
 from pathlib import Path
-from typing import Dict, Any, List
-import math
+from typing import Any, Dict, List
 
 # Add formal contracts
 sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent / "MomoAI/projects/coherence/formal_contracts"))
-from contract_language import coherence_contract, ComplexityClass
+from contract_language import ComplexityClass, coherence_contract
+
 
 class KellyPositionSizer:
     """Kelly Criterion position sizing with safety factors and volatility adjustments."""

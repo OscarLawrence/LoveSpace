@@ -1,6 +1,7 @@
 """CLI interface for documentation parser."""
 
 import click
+
 from .python_stdlib import PythonStdlibParser
 
 

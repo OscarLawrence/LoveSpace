@@ -1,6 +1,7 @@
 """CLI and command processing patterns."""
 
 from typing import List
+
 from ..db_manager import Pattern
 
 

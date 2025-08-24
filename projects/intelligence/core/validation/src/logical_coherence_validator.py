@@ -6,10 +6,11 @@ in agent requests and responses. Uses pattern matching, semantic analysis,
 and logical reasoning to identify problems before execution.
 """
 
-import re
 import json
-from typing import Dict, List, Tuple, Set, Optional
+import re
 from dataclasses import dataclass
+from typing import Dict, List, Optional, Set, Tuple
+
 from .validation_models import CoherenceIssue, SeverityLevel
 
 

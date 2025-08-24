@@ -1,13 +1,13 @@
 """Commercial OM installation and setup system."""
 
-import os
-import sys
-import subprocess
-import shutil
 import json
+import os
 import platform
+import shutil
+import subprocess
+import sys
 from pathlib import Path
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict, List, Optional
 
 
 class CommercialInstaller:

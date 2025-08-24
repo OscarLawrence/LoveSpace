@@ -5,24 +5,25 @@ Mathematical synthesis of all analysis for maximum MomoAI funding efficiency.
 """
 
 import sys
-from pathlib import Path
-from typing import List, Dict, Optional, Tuple
+import time
 from dataclasses import dataclass
 from datetime import datetime
-import time
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
 
 # Add module paths
 current_dir = Path(__file__).parent
 sys.path.insert(0, str(current_dir))
 
-from execution.binance_connector import create_binance_connector
-from strategies.altcoin_correlation_matrix import create_altcoin_detector
-from risk.position_sizing import create_volatility_sizer
 from dynamic_market_discovery import DynamicMarketDiscovery
+from execution.binance_connector import create_binance_connector
+from risk.position_sizing import create_volatility_sizer
+from strategies.altcoin_correlation_matrix import create_altcoin_detector
 
 # Add formal contracts
 sys.path.insert(0, str(current_dir.parent.parent / "MomoAI/projects/coherence/formal_contracts"))
-from contract_language import coherence_contract, ComplexityClass
+from contract_language import ComplexityClass, coherence_contract
+
 
 @dataclass
 class OptimalAsset:

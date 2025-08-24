@@ -3,9 +3,11 @@ Pure HTTP client for Claude Sonnet 4
 No SDK pollution, clean interface for coherent AI collaboration
 """
 import os
-import httpx
 from typing import AsyncGenerator
+
+import httpx
 from dotenv import load_dotenv
+
 from .contracts import contract_enforced
 
 # Load environment variables (auto-resolves .env up the directory tree)

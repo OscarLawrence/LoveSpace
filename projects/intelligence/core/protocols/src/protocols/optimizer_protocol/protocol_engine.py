@@ -3,11 +3,12 @@ Main protocol engine for optimizer communication
 """
 
 import asyncio
-from typing import Dict, Any
-from .data_models import MessageType
-from .message_manager import MessageManager
+from typing import Any, Dict
+
 from .agent_manager import AgentManager
 from .communication_handlers import CommunicationHandlers
+from .data_models import MessageType
+from .message_manager import MessageManager
 
 try:
     from ..ai_protocol import AIProtocol

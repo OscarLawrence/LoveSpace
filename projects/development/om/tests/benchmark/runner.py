@@ -2,14 +2,16 @@
 Benchmark runner for context injection testing
 """
 
-import numpy as np
 from typing import List
+
+import numpy as np
 
 from knowledge.db_manager import ContextDB
 from knowledge.embeddings import EmbeddingManager
+
 from .data_models import BenchmarkQuery, BenchmarkResult
-from .query_definitions import load_benchmark_queries
 from .evaluator import BenchmarkEvaluator
+from .query_definitions import load_benchmark_queries
 
 
 class BenchmarkRunner:

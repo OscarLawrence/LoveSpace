@@ -6,10 +6,11 @@ Smart summaries for rapid development acceleration.
 
 import ast
 import json
-from pathlib import Path
-from typing import Dict, List, Set, Tuple, Optional
-from collections import defaultdict, Counter
+from collections import Counter, defaultdict
 from dataclasses import dataclass
+from pathlib import Path
+from typing import Dict, List, Optional, Set, Tuple
+
 import networkx as nx
 
 

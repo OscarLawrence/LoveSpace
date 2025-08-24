@@ -4,7 +4,6 @@ Tests for formal contract system.
 """
 
 import pytest
-
 from axiom.contracts import (
     APICallContract,
     ChatSessionContract,

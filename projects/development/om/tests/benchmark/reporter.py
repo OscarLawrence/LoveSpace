@@ -4,6 +4,7 @@ Benchmark report generation
 
 import json
 from typing import Dict, List
+
 from .data_models import BenchmarkResult
 
 

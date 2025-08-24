@@ -2,12 +2,13 @@
 Optimization session management
 """
 
-import time
 import json
-import numpy as np
-from typing import Dict, List, Any, Optional
+import time
 from collections import defaultdict
 from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import numpy as np
 
 from .data_models import OptimizationSession
 

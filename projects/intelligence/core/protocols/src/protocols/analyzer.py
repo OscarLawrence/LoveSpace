@@ -3,13 +3,14 @@ Metrics Analyzer - Advanced performance analysis and insights
 """
 
 import time
-from typing import Dict, List, Any, Optional, Tuple
-import numpy as np
-from scipy import stats
 from collections import defaultdict
 from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, Tuple
 
-from .collector import MetricType, MetricPoint, MetricSeries
+import numpy as np
+from scipy import stats
+
+from .collector import MetricPoint, MetricSeries, MetricType
 
 
 @dataclass

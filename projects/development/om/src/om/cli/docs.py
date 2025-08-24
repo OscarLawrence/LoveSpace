@@ -1,8 +1,10 @@
 """Documentation commands."""
 
-import click
 import re
 from pathlib import Path
+
+import click
+
 from .utils import _check_docs_parser
 
 

@@ -4,9 +4,10 @@
 Demonstrates Phase 1 implementation reducing cognitive load from 15+ to 3-5 commands.
 """
 
+import sys
+
 from src.om.agent_scoping import AutoScoper, ScopeManager, create_scope_context
 from src.om.scoped_cli import ScopedCLI
-import sys
 
 
 def demo_cognitive_load_reduction():

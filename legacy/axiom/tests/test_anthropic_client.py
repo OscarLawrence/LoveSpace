@@ -8,7 +8,6 @@ from unittest.mock import AsyncMock, patch
 
 import httpx
 import pytest
-
 from axiom.anthropic_client import (
     AnthropicClient,
     AnthropicMessage,

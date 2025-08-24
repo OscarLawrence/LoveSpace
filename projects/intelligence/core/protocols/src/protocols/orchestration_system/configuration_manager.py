@@ -4,7 +4,8 @@ Configuration management and optimization
 
 import asyncio
 import time
-from typing import Dict, Any
+from typing import Any, Dict
+
 from .data_models import ServiceInfo, ServiceStatus
 
 

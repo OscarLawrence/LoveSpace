@@ -4,7 +4,7 @@ Type documentation generation
 
 import json
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Any, Dict, List
 
 
 class TypeDocumentationGenerator:

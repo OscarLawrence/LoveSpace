@@ -2,7 +2,7 @@
 Quality gate enforcement for documentation coverage
 """
 
-from typing import Dict, List, Tuple, Any
+from typing import Any, Dict, List, Tuple
 
 from .data_models import CoverageMetrics
 

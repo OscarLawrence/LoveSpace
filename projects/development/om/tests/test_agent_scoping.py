@@ -3,15 +3,19 @@
 Validates Phase 1: Agent Tool Scoping implementation.
 """
 
-import pytest
-from pathlib import Path
-import tempfile
 import json
-from unittest.mock import patch, MagicMock
+import tempfile
+from pathlib import Path
+from unittest.mock import MagicMock, patch
 
+import pytest
 from om.agent_scoping import (
-    AutoScoper, ScopedToolProvider, ScopeManager, ScopeContext, 
-    ScopeResult, create_scope_context
+    AutoScoper,
+    ScopeContext,
+    ScopedToolProvider,
+    ScopeManager,
+    ScopeResult,
+    create_scope_context,
 )
 
 

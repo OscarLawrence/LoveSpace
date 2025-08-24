@@ -1,7 +1,8 @@
 """Logical contradiction detection - 200 LOC max"""
 
 import re
-from typing import List, Dict, Set, Tuple, Optional
+from typing import Dict, List, Optional, Set, Tuple
+
 from .models import ContradictionReport, ValidationResult, ValidationStatus
 
 

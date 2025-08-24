@@ -5,10 +5,10 @@ Code serves as documentation through intelligent analysis and generation.
 
 import ast
 import inspect
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Any
-from dataclasses import dataclass
 import re
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
 
 
 @dataclass

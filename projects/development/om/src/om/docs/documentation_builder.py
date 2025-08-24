@@ -1,10 +1,11 @@
 """Documentation builder for coordinating the documentation generation process."""
 
 import os
-import sys
 import subprocess
+import sys
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import Dict, List, Optional
+
 from .code_analyzer import CodeAnalyzer, CodeElement
 from .sphinx_generator import SphinxGenerator
 

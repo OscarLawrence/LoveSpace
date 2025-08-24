@@ -4,8 +4,8 @@ Standalone benchmark runner for context injection quality validation.
 Run with: python benchmark_runner.py
 """
 
-import sys
 import json
+import sys
 from pathlib import Path
 
 # Add current directory to path for imports

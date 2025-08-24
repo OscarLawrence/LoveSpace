@@ -1,7 +1,8 @@
 """Batch processing for popular Python stdlib functions."""
 
 from concurrent.futures import ThreadPoolExecutor
-from typing import List, Dict
+from typing import Dict, List
+
 from .python_stdlib import PythonStdlibParser
 
 # Popular stdlib functions to pre-cache

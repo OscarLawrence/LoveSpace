@@ -6,16 +6,16 @@ Runs comprehensive backtesting with walk-forward validation to ensure
 statistical significance and robustness of the trading strategy.
 """
 
-import sys
-from pathlib import Path
-from datetime import datetime, timedelta
 import logging
+import sys
+from datetime import datetime, timedelta
+from pathlib import Path
 
 # Add module paths
 current_dir = Path(__file__).parent
 sys.path.insert(0, str(current_dir))
 
-from backtesting.coherent_backtester import CoherentBacktester, BacktestConfig
+from backtesting.coherent_backtester import BacktestConfig, CoherentBacktester
 from dynamic_market_discovery import DynamicMarketDiscovery
 
 # Configure logging

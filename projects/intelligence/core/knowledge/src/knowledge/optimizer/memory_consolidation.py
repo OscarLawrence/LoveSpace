@@ -2,8 +2,8 @@
 Memory consolidation for optimizer patterns
 """
 
-from typing import Dict, List, Tuple
 from collections import defaultdict, deque
+from typing import Dict, List, Tuple
 
 from .data_models import PerformancePattern
 

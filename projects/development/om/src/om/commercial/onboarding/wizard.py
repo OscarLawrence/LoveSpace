@@ -1,10 +1,11 @@
 """Setup wizard for OM Commercial onboarding."""
 
-import sys
 import subprocess
+import sys
 from pathlib import Path
+
 from .license_setup import LicenseActivator
-from .workspace_setup import WorkspaceDetector, PreferencesSetup
+from .workspace_setup import PreferencesSetup, WorkspaceDetector
 
 
 class SetupWizard:

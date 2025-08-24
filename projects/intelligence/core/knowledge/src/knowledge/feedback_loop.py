@@ -5,11 +5,12 @@ Continuous learning and adaptation based on performance feedback
 
 import asyncio
 import time
-from typing import Dict, List, Any, Optional, Tuple
-from collections import deque, defaultdict
-import numpy as np
+from collections import defaultdict, deque
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
 
 
 class FeedbackType(Enum):

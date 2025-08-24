@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Iterator, Optional, Union
 
 try:
-    from knowledge.db_manager import ContextDB, Function, Class, Pattern
+    from knowledge.db_manager import Class, ContextDB, Function, Pattern
 except ImportError:
     # Fallback for development/testing
     ContextDB = Function = Class = Pattern = None

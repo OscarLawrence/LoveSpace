@@ -3,6 +3,7 @@
 
 import requests
 
+
 def debug_binance_symbols():
     """Debug exactly what's happening with symbol discovery."""
     print("🔧 DEBUGGING BINANCE SYMBOL DISCOVERY")

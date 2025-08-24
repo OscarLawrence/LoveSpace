@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Scaffolding commands for coordinated subsystem generation."""
 
-import click
 from pathlib import Path
-from .coordination_scaffolding import create_coordination_scaffolder, ObjectiveType
+
+import click
+
+from .coordination_scaffolding import ObjectiveType, create_coordination_scaffolder
 
 
 @click.command()

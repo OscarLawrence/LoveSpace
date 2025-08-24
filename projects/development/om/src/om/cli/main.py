@@ -2,17 +2,18 @@
 """AI-first monorepo management CLI - main entry point."""
 
 import click
-from .workspace import workspace
-from .docs import docs, python
+
 from .code import code
-from .find import find
-from .scaffold import scaffold
-from .memory import memory
-from .isolate import isolate
-from .session import session
-from .preferences import preferences
-from .deploy import deploy
 from .coherence import coherence
+from .deploy import deploy
+from .docs import docs, python
+from .find import find
+from .isolate import isolate
+from .memory import memory
+from .preferences import preferences
+from .scaffold import scaffold
+from .session import session
+from .workspace import workspace
 
 
 @click.group()

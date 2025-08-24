@@ -2,7 +2,7 @@
 Workflow status monitoring
 """
 
-from typing import Dict, List, Any
+from typing import Any, Dict, List
 
 from ..task_management import TaskManager, TaskStatus
 

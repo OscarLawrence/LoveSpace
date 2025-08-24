@@ -1,16 +1,17 @@
 """License validation and management."""
 
-import os
-import json
-import hashlib
+import base64
 import datetime
-from typing import Dict, Any, Optional
+import hashlib
+import json
+import os
 from pathlib import Path
+from typing import Any, Dict, Optional
+
 import requests
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-import base64
 
 
 class LicenseValidationError(Exception):

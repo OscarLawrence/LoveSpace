@@ -1,10 +1,11 @@
 """Documentation coverage enforcement commands."""
 
-import click
-from pathlib import Path
 import json
+from pathlib import Path
 
-from .coverage_enforcement import CoverageAnalyzer, QualityGate, CoverageReporter
+import click
+
+from .coverage_enforcement import CoverageAnalyzer, CoverageReporter, QualityGate
 from .scoped_cli import scoped_command, validate_scope
 
 

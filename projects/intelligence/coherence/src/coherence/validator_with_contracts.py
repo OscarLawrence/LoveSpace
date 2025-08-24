@@ -5,16 +5,17 @@ Core validation engine with mathematical guarantees for detecting contradictions
 and ensuring logical consistency in reasoning chains and statements.
 """
 
+import os
 import re
 import sys
-import os
-from typing import List, Dict, Any, Optional, Tuple
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any, Dict, List, Optional, Tuple
 
 # Add formal contracts to path
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../formal_contracts'))
-from contract_language import coherence_contract, BuiltinPredicates, ComplexityClass
+from contract_language import BuiltinPredicates, ComplexityClass, coherence_contract
+
 
 class CoherenceLevel(Enum):
     """Levels of logical coherence"""

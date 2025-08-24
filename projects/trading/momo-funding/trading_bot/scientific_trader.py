@@ -5,22 +5,24 @@ Orchestrates micro-modules with formal contracts for profitable trading.
 """
 
 import sys
-from pathlib import Path
-from typing import List, Dict, Optional
-from datetime import datetime
 import time
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Optional
 
 # Add module paths
 current_dir = Path(__file__).parent
 sys.path.insert(0, str(current_dir))
 
-from execution.binance_connector import create_binance_connector, MarketData
-from strategies.correlation_breakdown import create_correlation_detector, MarketData as StrategyMarketData, TradingSignal
+from execution.binance_connector import MarketData, create_binance_connector
 from risk.position_sizing import create_position_sizer
+from strategies.correlation_breakdown import MarketData as StrategyMarketData
+from strategies.correlation_breakdown import TradingSignal, create_correlation_detector
 
 # Add formal contracts
 sys.path.insert(0, str(current_dir.parent.parent / "MomoAI/projects/coherence/formal_contracts"))
-from contract_language import coherence_contract, ComplexityClass
+from contract_language import ComplexityClass, coherence_contract
+
 
 class ScientificTrader:
     """

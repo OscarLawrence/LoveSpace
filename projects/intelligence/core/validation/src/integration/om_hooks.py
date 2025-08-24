@@ -2,8 +2,9 @@
 
 import json
 import subprocess
-from typing import Dict, List, Optional, Any, Tuple
-from ..models import ValidationResult, ValidationStatus, ValidationSession
+from typing import Any, Dict, List, Optional, Tuple
+
+from ..models import ValidationResult, ValidationSession, ValidationStatus
 
 
 class OMIntegration:

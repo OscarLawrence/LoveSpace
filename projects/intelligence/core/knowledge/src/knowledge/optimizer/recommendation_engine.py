@@ -2,9 +2,10 @@
 Strategy recommendation engine
 """
 
-import numpy as np
-from typing import Dict, List, Any
 from collections import defaultdict
+from typing import Any, Dict, List
+
+import numpy as np
 
 from .pattern_storage import PatternStorage
 

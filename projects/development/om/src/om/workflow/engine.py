@@ -2,14 +2,14 @@
 Main workflow engine using modular components
 """
 
-from typing import Dict, List, Any
+from typing import Any, Dict, List
 
-from ..task_management import TaskManager, Task
 from ..agent_scoping import ScopeManager
+from ..task_management import Task, TaskManager
 from .data_models import Workflow
-from .templates import WorkflowTemplates
 from .execution_engine import WorkflowExecutionEngine
 from .status_monitor import WorkflowStatusMonitor
+from .templates import WorkflowTemplates
 
 
 class WorkflowEngine:

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Coordination-based scaffolding system for intelligent subsystem generation."""
 
-from typing import Dict, List, Optional, Tuple, Any
+import json
 from dataclasses import dataclass
 from enum import Enum
-import json
+from typing import Any, Dict, List, Optional, Tuple
 
 
 class ObjectiveType(Enum):

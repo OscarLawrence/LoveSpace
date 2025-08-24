@@ -5,28 +5,33 @@ Integrates all backtesting components with live trading strategy logic.
 Ensures zero logic divergence between backtesting and live trading.
 """
 
-from dataclasses import dataclass
-from typing import List, Dict, Optional, Tuple, Any
-from datetime import datetime, timedelta
-import pandas as pd
-import numpy as np
 import logging
-
-from .historical_data_engine import HistoricalDataEngine, AssetDataSeries
-from .market_simulator import MarketSimulator, OrderRequest, OrderSide, OrderType
-from .performance_analyzer import PerformanceAnalyzer, Trade, PerformanceMetrics
-from .validation_framework import ValidationFramework, WalkForwardResults
 
 # Import live strategy components (EXACT SAME CODE)
 import sys
+from dataclasses import dataclass
+from datetime import datetime, timedelta
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
+import pandas as pd
+
+from .historical_data_engine import AssetDataSeries, HistoricalDataEngine
+from .market_simulator import MarketSimulator, OrderRequest, OrderSide, OrderType
+from .performance_analyzer import PerformanceAnalyzer, PerformanceMetrics, Trade
+from .validation_framework import ValidationFramework, WalkForwardResults
+
 current_dir = Path(__file__).parent.parent
 sys.path.insert(0, str(current_dir))
 
-from strategies.altcoin_correlation_matrix import AltcoinCorrelationDetector, CorrelationBreakdown
-from risk.position_sizing import KellyPositionSizer, VolatilityAdjustedSizer
-from execution.binance_connector import create_binance_connector
 from dynamic_market_discovery import DynamicMarketDiscovery
+from execution.binance_connector import create_binance_connector
+from risk.position_sizing import KellyPositionSizer, VolatilityAdjustedSizer
+from strategies.altcoin_correlation_matrix import (
+    AltcoinCorrelationDetector,
+    CorrelationBreakdown,
+)
 
 logger = logging.getLogger(__name__)
 

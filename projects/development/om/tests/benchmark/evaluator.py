@@ -3,6 +3,7 @@ Benchmark evaluation logic
 """
 
 from typing import List
+
 from .data_models import BenchmarkQuery
 
 

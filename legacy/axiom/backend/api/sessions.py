@@ -2,12 +2,12 @@
 Session management API endpoints
 RESTful interface for session operations
 """
-from fastapi import APIRouter, HTTPException, Depends
-from pydantic import BaseModel
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
-from core.session_manager import SessionManager, CollaborationStage, Session
 from core.contracts import contract_enforced
+from core.session_manager import CollaborationStage, Session, SessionManager
+from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel
 
 router = APIRouter(prefix="/sessions", tags=["sessions"])
 

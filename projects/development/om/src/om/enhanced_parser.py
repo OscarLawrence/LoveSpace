@@ -2,12 +2,14 @@
 """Enhanced parsing integration with Sphinx autodoc for improved context extraction."""
 
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any, Dict
+
 
 def integrate_sphinx_parser():
     """Integrate Sphinx parser into OM tool for enhanced code analysis."""
     try:
         from code_parser import create_enhanced_parser
+
         from knowledge.db_manager import ContextDB
         
         # Initialize database

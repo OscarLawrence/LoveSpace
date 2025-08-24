@@ -4,7 +4,8 @@ Eliminates built-in tool chaos through unified OM commands.
 """
 
 import click
-from ..deployment import deploy_collaboration_platform, check_platform_status
+
+from ..deployment import check_platform_status, deploy_collaboration_platform
 
 
 @click.group()

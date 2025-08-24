@@ -1,13 +1,13 @@
 """Analytics collection and monitoring."""
 
-import json
 import datetime
+import json
 import platform
-from typing import Dict, Any, List, Optional
-from pathlib import Path
 from dataclasses import asdict
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
-from .models import UsageMetric, PerformanceMetric, ErrorMetric, MetricUtils
+from .models import ErrorMetric, MetricUtils, PerformanceMetric, UsageMetric
 
 
 class AnalyticsCollector:

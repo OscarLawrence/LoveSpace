@@ -2,12 +2,12 @@
 Message handling API endpoints
 RESTful interface for message operations
 """
-from fastapi import APIRouter, HTTPException, Depends
-from pydantic import BaseModel
 from typing import List
 
-from core.session_manager import SessionManager, Message
 from core.contracts import contract_enforced
+from core.session_manager import Message, SessionManager
+from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel
 
 router = APIRouter(prefix="/messages", tags=["messages"])
 

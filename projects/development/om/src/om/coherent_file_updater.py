@@ -3,7 +3,7 @@ Drop-in replacement for manual edits.
 Usage: uv run om coherence update file1.py file2.py "request"
 """
 
-from .coherent_api import CoherentUpdateEngine, CoherentFileManager, get_api_key
+from .coherent_api import CoherentFileManager, CoherentUpdateEngine, get_api_key
 
 
 def rovodev_update_files(files, request):

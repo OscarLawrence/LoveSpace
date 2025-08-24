@@ -2,8 +2,8 @@
 
 import subprocess
 import tempfile
-from typing import Dict, Any
 from pathlib import Path
+from typing import Any, Dict
 
 
 class CodeInterpreter:

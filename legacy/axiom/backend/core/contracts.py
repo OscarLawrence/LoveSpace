@@ -10,12 +10,12 @@ Design Principles:
 5. Incremental adoption - can be added to existing code
 """
 
-from typing import List, Dict, Any, Callable, Union, Optional, TypeVar
+import ast
+import inspect
 from dataclasses import dataclass
 from enum import Enum
 from functools import wraps
-import ast
-import inspect
+from typing import Any, Callable, Dict, List, Optional, TypeVar, Union
 
 F = TypeVar('F', bound=Callable[..., Any])
 

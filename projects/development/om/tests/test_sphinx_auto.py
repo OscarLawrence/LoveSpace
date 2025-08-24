@@ -1,16 +1,18 @@
 """Tests for Sphinx Auto-Generation System."""
 
-import pytest
-import tempfile
 import ast
+import tempfile
 from pathlib import Path
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
-from om.sphinx_auto import (
-    CodeAnalyzer, SphinxGenerator, DocumentationBuilder,
-    CodeElement
-)
+import pytest
 from om.docless_architecture import CodeDocumentationExtractor, DoclessSphinxGenerator
+from om.sphinx_auto import (
+    CodeAnalyzer,
+    CodeElement,
+    DocumentationBuilder,
+    SphinxGenerator,
+)
 
 
 class TestCodeAnalyzer:

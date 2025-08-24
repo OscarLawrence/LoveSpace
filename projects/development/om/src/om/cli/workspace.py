@@ -1,8 +1,9 @@
 """Workspace management commands."""
 
-import click
 import tomllib
 from pathlib import Path
+
+import click
 
 
 @click.group()

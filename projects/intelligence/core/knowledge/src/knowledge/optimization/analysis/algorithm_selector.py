@@ -2,16 +2,16 @@
 Algorithm selection logic for optimization
 """
 
-from typing import Dict, Any, Callable
+from typing import Any, Callable, Dict
 
-from ..data_models import OptimizationContext
 from ..algorithms import (
-    GradientDescentOptimizer,
+    AdaptiveOptimizer,
     BayesianOptimizer,
     GeneticOptimizer,
+    GradientDescentOptimizer,
     ReinforcementOptimizer,
-    AdaptiveOptimizer
 )
+from ..data_models import OptimizationContext
 
 
 class AlgorithmSelector:

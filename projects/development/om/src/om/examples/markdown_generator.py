@@ -4,6 +4,7 @@ Markdown documentation generator for examples
 
 from pathlib import Path
 from typing import List
+
 from .data_models import IntegrationExample
 
 

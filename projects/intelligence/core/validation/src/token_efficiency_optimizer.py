@@ -1,9 +1,9 @@
 """Token efficiency optimization for request clarity and cost reduction"""
 
-import re
 import json
-from typing import Dict, List, Tuple, Set, Optional, Any
+import re
 from dataclasses import dataclass
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 
 @dataclass

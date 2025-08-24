@@ -7,11 +7,11 @@ import json
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 
-from .module_isolation import ModuleIsolation, ModuleBoundary
-from .session_manager import SessionManager
+from .learning import LearningSystem
+from .module_isolation import ModuleBoundary, ModuleIsolation
 from .preferences import PreferenceManager
 from .project_context import ProjectContext
-from .learning import LearningSystem
+from .session_manager import SessionManager
 
 
 class MemoryIntegration:

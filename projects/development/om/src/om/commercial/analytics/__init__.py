@@ -1,7 +1,7 @@
 """Analytics module initialization."""
 
-from .models import UsageMetric, PerformanceMetric, ErrorMetric
 from .collector import AnalyticsCollector
+from .models import ErrorMetric, PerformanceMetric, UsageMetric
 
 # Backward compatibility alias
 AnalyticsCollector = AnalyticsCollector

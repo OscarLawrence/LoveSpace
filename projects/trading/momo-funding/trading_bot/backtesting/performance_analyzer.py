@@ -10,13 +10,14 @@ Provides comprehensive performance analysis with:
 - Benchmark comparisons
 """
 
+import logging
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Tuple
 from datetime import datetime, timedelta
+from typing import Dict, List, Optional, Tuple
+
 import numpy as np
 import pandas as pd
 from scipy import stats
-import logging
 
 logger = logging.getLogger(__name__)
 

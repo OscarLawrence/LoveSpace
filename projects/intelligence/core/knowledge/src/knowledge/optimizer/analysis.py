@@ -2,11 +2,12 @@
 Performance analysis for optimizer patterns
 """
 
-import numpy as np
-from typing import Dict, List, Any, Optional
 from collections import defaultdict, deque
+from typing import Any, Dict, List, Optional
 
-from .data_models import PerformancePattern, OptimizationSession
+import numpy as np
+
+from .data_models import OptimizationSession, PerformancePattern
 
 
 class PerformanceAnalyzer:

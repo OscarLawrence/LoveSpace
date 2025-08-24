@@ -2,15 +2,15 @@
 
 import os
 import sys
-from typing import Dict, Any, Optional
 from pathlib import Path
+from typing import Any, Dict, Optional
 
 # Add OM tools to path
 om_path = Path(__file__).parent.parent.parent / "tools" / "om"
 if om_path.exists():
     sys.path.insert(0, str(om_path))
 
-from .logical_coherence_validator import LogicalCoherenceValidator, CoherenceResult
+from .logical_coherence_validator import CoherenceResult, LogicalCoherenceValidator
 
 
 class OMIntegration:

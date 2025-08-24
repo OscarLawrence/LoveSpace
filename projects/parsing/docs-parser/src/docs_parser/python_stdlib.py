@@ -1,12 +1,13 @@
 """Python stdlib documentation parser for docs.python.org."""
 
+import json
 import re
+import time
+from pathlib import Path
+from typing import Any, Dict, Optional
+
 import requests
 from bs4 import BeautifulSoup
-from typing import Optional, Dict, Any
-from pathlib import Path
-import json
-import time
 
 try:
     from knowledge.db_manager import ContextDB

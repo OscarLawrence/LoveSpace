@@ -3,13 +3,14 @@ Metrics Aggregator - Advanced metric aggregation and analysis
 """
 
 import time
-from typing import Dict, List, Any, Optional, Callable, Union
-from dataclasses import dataclass
 from collections import defaultdict
-import numpy as np
+from dataclasses import dataclass
 from enum import Enum
+from typing import Any, Callable, Dict, List, Optional, Union
 
-from .collector import MetricType, MetricPoint, MetricSeries
+import numpy as np
+
+from .collector import MetricPoint, MetricSeries, MetricType
 
 
 class AggregationType(Enum):

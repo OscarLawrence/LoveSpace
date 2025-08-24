@@ -1,6 +1,7 @@
 """API and web service patterns."""
 
 from typing import List
+
 from ..db_manager import Pattern
 
 

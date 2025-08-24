@@ -3,9 +3,10 @@ Main benchmark suite for context injection testing
 """
 
 from typing import Dict, List
-from .runner import BenchmarkRunner
-from .reporter import BenchmarkReporter
+
 from .data_models import BenchmarkResult
+from .reporter import BenchmarkReporter
+from .runner import BenchmarkRunner
 
 
 class ContextInjectionBenchmark:

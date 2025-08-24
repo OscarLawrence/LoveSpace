@@ -1,6 +1,7 @@
 """Code pattern library for knowledge base population."""
 
-from typing import List, Dict
+from typing import Dict, List
+
 from .db_manager import ContextDB, Pattern
 
 

@@ -4,12 +4,14 @@ Batch embedding operations for efficient context injection.
 Optimizes multiple queries by batching embedding calculations.
 """
 
-from typing import List, Dict, Set, Tuple, Optional
 from dataclasses import dataclass
+from typing import Dict, List, Optional, Set, Tuple
+
 import numpy as np
-from .embeddings import EmbeddingManager
+
 from .db_manager import ContextDB, Function, Pattern
-from .format_manager import get_format_manager, FormatType
+from .embeddings import EmbeddingManager
+from .format_manager import FormatType, get_format_manager
 
 
 @dataclass

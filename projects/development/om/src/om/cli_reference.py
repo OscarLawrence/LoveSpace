@@ -3,11 +3,12 @@
 Generates comprehensive CLI documentation from Click commands.
 """
 
-import click
-from pathlib import Path
-from typing import Dict, List, Optional, Any
 import inspect
 import re
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import click
 
 
 class CLIDocumentationGenerator:

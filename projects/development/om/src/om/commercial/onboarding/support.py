@@ -1,9 +1,9 @@
 """Support ticket system."""
 
-import json
 import datetime
-from typing import Dict, Any
+import json
 from pathlib import Path
+from typing import Any, Dict
 
 
 class SupportTicketSystem:

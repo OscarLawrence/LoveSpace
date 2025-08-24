@@ -3,10 +3,10 @@ Workflow execution engine
 """
 
 import json
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List, Optional
 
-from ..task_management import TaskManager, Task, TaskType, TaskPriority
 from ..agent_scoping import ScopeManager, create_scope_context
+from ..task_management import Task, TaskManager, TaskPriority, TaskType
 from .data_models import Workflow
 
 

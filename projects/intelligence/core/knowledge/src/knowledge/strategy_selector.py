@@ -4,10 +4,11 @@ Context-aware optimization strategy selection
 """
 
 import asyncio
-from typing import Dict, List, Any, Optional
-import numpy as np
-from enum import Enum
 from dataclasses import dataclass
+from enum import Enum
+from typing import Any, Dict, List, Optional
+
+import numpy as np
 
 
 class ContextType(Enum):

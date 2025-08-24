@@ -5,11 +5,12 @@ Collects multi-dimensional metrics for AI optimization
 
 import asyncio
 import time
-import psutil
-from typing import Dict, List, Any, Optional
-from dataclasses import dataclass
-import numpy as np
 from collections import deque
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
+
+import numpy as np
+import psutil
 
 
 @dataclass

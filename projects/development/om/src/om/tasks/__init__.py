@@ -1,8 +1,8 @@
 """Task management system."""
 
-from .models import Task, TaskStatus, TaskPriority, TaskType, TaskContext, TaskMetrics
 from .analyzer import TaskAnalyzer
 from .manager import TaskManager
+from .models import Task, TaskContext, TaskMetrics, TaskPriority, TaskStatus, TaskType
 
 __all__ = [
     'Task', 'TaskStatus', 'TaskPriority', 'TaskType', 'TaskContext', 'TaskMetrics',

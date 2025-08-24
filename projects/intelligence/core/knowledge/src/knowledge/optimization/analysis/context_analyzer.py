@@ -2,8 +2,9 @@
 Context analysis for optimization decisions
 """
 
+from typing import Any, Dict, List
+
 import numpy as np
-from typing import Dict, List, Any
 
 from ..data_models import OptimizationContext
 

@@ -1,7 +1,8 @@
 """Pattern recognition for validation - 200 LOC max"""
 
 import re
-from typing import Dict, List, Set, Optional, Tuple
+from typing import Dict, List, Optional, Set, Tuple
+
 from .models import PatternMatch, ValidationResult, ValidationStatus
 
 

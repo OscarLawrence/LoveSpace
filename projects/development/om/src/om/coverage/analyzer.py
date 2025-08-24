@@ -3,9 +3,9 @@ Documentation coverage analyzer
 """
 
 import ast
-from pathlib import Path
-from typing import Dict, List, Any
 from dataclasses import asdict
+from pathlib import Path
+from typing import Any, Dict, List
 
 from .data_models import CoverageMetrics, QualityIssue
 

@@ -8,20 +8,21 @@ the optimal parameters for current market conditions.
 This is the logical next step after comprehensive backtesting showed 0 trades.
 """
 
-import sys
-from pathlib import Path
-from datetime import datetime, timedelta
-import logging
-import json
-import pandas as pd
-from typing import Dict, List, Any, Tuple
 import itertools
+import json
+import logging
+import sys
+from datetime import datetime, timedelta
+from pathlib import Path
+from typing import Any, Dict, List, Tuple
+
+import pandas as pd
 
 # Add module paths
 current_dir = Path(__file__).parent
 sys.path.insert(0, str(current_dir))
 
-from backtesting.coherent_backtester import CoherentBacktester, BacktestConfig
+from backtesting.coherent_backtester import BacktestConfig, CoherentBacktester
 from dynamic_market_discovery import DynamicMarketDiscovery
 
 # Configure logging

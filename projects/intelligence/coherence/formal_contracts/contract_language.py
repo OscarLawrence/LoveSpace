@@ -11,11 +11,12 @@ Design Principles:
 5. Incremental adoption - can be added to existing code
 """
 
-from typing import List, Dict, Any, Callable, Union, Optional
-from dataclasses import dataclass
-from enum import Enum
 import ast
 import inspect
+from dataclasses import dataclass
+from enum import Enum
+from typing import Any, Callable, Dict, List, Optional, Union
+
 
 class ComplexityClass(Enum):
     """Time/space complexity classifications"""

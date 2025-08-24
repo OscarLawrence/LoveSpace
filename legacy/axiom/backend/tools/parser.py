@@ -3,8 +3,8 @@ Tool call parser for natural function calls
 Extracts function calls from AI responses without complex JSON
 """
 import re
-from typing import List, Tuple, Any
 from dataclasses import dataclass
+from typing import Any, List, Tuple
 
 from core.contracts import contract_enforced
 

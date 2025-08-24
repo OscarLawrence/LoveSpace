@@ -4,13 +4,13 @@ Main schema generator using modular components
 
 import ast
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any, Dict
 
-from .data_models import TypeSchema
-from .type_analyzer import TypeAnalyzer
-from .function_schema_generator import FunctionSchemaGenerator
 from .class_schema_generator import ClassSchemaGenerator
+from .data_models import TypeSchema
 from .documentation_generator import TypeDocumentationGenerator
+from .function_schema_generator import FunctionSchemaGenerator
+from .type_analyzer import TypeAnalyzer
 
 
 class SchemaGenerator:

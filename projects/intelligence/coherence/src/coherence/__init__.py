@@ -4,27 +4,25 @@ Coherence Engine - Real-time logical consistency validation for MomoAI.
 This is the foundation that enables building truly coherent AI tools.
 """
 
-from .validator import (
-    LogicalCoherenceValidator,
-    CoherenceResult,
-    CoherenceLevel,
-    create_coherence_validator
-)
-
-from .monitor import (
-    CoherenceMonitor,
-    CoherenceEvent,
-    get_global_monitor,
-    start_global_monitoring,
-    validate_with_monitoring
-)
-
 from .integration import (
     UnifiedCoherenceEngine,
     get_coherence_engine,
-    validate_statement,
+    start_coherence_monitoring,
     validate_reasoning,
-    start_coherence_monitoring
+    validate_statement,
+)
+from .monitor import (
+    CoherenceEvent,
+    CoherenceMonitor,
+    get_global_monitor,
+    start_global_monitoring,
+    validate_with_monitoring,
+)
+from .validator import (
+    CoherenceLevel,
+    CoherenceResult,
+    LogicalCoherenceValidator,
+    create_coherence_validator,
 )
 
 __version__ = "0.1.0"

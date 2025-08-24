@@ -1,8 +1,8 @@
 """Onboarding system main interface."""
 
-from .wizard import SetupWizard
-from .support import SupportTicketSystem
 from ..license import SubscriptionManager
+from .support import SupportTicketSystem
+from .wizard import SetupWizard
 
 
 class OnboardingSystem:

@@ -2,15 +2,16 @@
 Performance Tracker - Historical performance tracking and baseline management
 """
 
-import time
 import json
-from typing import Dict, List, Any, Optional, Tuple
-from dataclasses import dataclass, field
+import time
 from collections import deque
-import numpy as np
+from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
 
-from .collector import MetricType, MetricPoint
+import numpy as np
+
+from .collector import MetricPoint, MetricType
 
 
 @dataclass

@@ -1,8 +1,9 @@
 """Feature flags and access control."""
 
-from typing import Dict, Any, List, Optional
 from enum import Enum
-from .subscription import SubscriptionManager, PlanTier
+from typing import Any, Dict, List, Optional
+
+from .subscription import PlanTier, SubscriptionManager
 
 
 class FeatureFlag(Enum):

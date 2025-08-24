@@ -4,9 +4,11 @@ Eliminates edit failures and logical incoherence.
 """
 
 import json
-import anthropic
-from typing import Dict, List, Optional, Any
 from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import anthropic
+
 
 # Simple fallback validator - no sys.path hacks
 class CoherenceIssue:
@@ -162,6 +164,7 @@ class CoherentFileManager:
 def get_api_key() -> Optional[str]:
     """Get Anthropic API key from environment or config."""
     import os
+
     from dotenv import load_dotenv
     
     # Auto-resolve .env from tree

@@ -1,6 +1,7 @@
 """Logical coherence scoring algorithms - 200 LOC max"""
 
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Optional, Tuple
+
 from .models import CoherenceScore, ValidationResult, ValidationStatus
 
 

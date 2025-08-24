@@ -4,6 +4,7 @@ Integration patterns generator
 
 import textwrap
 from typing import List
+
 from .data_models import IntegrationExample
 
 

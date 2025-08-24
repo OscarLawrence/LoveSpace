@@ -3,10 +3,10 @@ Class schema generation
 """
 
 import ast
-from typing import Dict, Any
+from typing import Any, Dict
 
-from .type_analyzer import TypeAnalyzer
 from .function_schema_generator import FunctionSchemaGenerator
+from .type_analyzer import TypeAnalyzer
 
 
 class ClassSchemaGenerator:

@@ -5,15 +5,16 @@ Multi-dimensional performance monitoring and optimization
 
 import asyncio
 import time
-from typing import Dict, List, Any, Optional, Callable
+from collections import defaultdict, deque
 from dataclasses import dataclass, field
 from enum import Enum
-import numpy as np
-from collections import defaultdict, deque
+from typing import Any, Callable, Dict, List, Optional
 
+import numpy as np
+
+from .feedback_loop import FeedbackLoop
 from .performance_monitor import PerformanceMonitor
 from .strategy_selector import StrategySelector
-from .feedback_loop import FeedbackLoop
 
 
 class OptimizationMode(Enum):

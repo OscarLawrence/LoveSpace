@@ -1,6 +1,7 @@
 """Testing patterns and fixtures."""
 
 from typing import List
+
 from ..db_manager import Pattern
 
 

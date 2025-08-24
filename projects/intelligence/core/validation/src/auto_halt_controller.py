@@ -2,9 +2,9 @@
 
 import json
 import time
-from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
 
 from .logical_coherence_validator import CoherenceResult
 

@@ -1,12 +1,13 @@
 """Task management commands for Om CLI."""
 
-import click
+import json
 from datetime import datetime, timedelta
 from pathlib import Path
-import json
 
-from .task_management import TaskManager, Task, TaskStatus, TaskPriority, TaskType
+import click
+
 from .scoped_cli import scoped_command, validate_scope
+from .task_management import Task, TaskManager, TaskPriority, TaskStatus, TaskType
 
 
 @click.group()

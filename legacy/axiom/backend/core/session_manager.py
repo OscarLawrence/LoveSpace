@@ -3,16 +3,17 @@ Session management for Axiom PWA
 Handles session state, WebSocket connections, and collaboration stages
 """
 import uuid
-from datetime import datetime
-from typing import Dict, List, Optional, Any
-from enum import Enum
 from dataclasses import dataclass, field
-from fastapi import WebSocket
+from datetime import datetime
+from enum import Enum
+from typing import Any, Dict, List, Optional
 
-from core.contracts import contract_enforced, coherence_contract, ComplexityClass
-from core.anthropic_client import AnthropicClient
-from tools.parser import ToolCallParser
+from fastapi import WebSocket
 from tools.executor import ToolExecutor
+from tools.parser import ToolCallParser
+
+from core.anthropic_client import AnthropicClient
+from core.contracts import ComplexityClass, coherence_contract, contract_enforced
 
 
 class CollaborationStage(Enum):

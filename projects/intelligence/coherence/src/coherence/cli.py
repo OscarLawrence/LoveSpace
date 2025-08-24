@@ -6,12 +6,13 @@ Coherence Engine CLI - Test and demonstrate coherence validation capabilities.
 import argparse
 import sys
 from typing import List
+
 from . import (
-    validate_statement, 
-    validate_reasoning, 
-    start_coherence_monitoring,
+    CoherenceLevel,
     get_coherence_engine,
-    CoherenceLevel
+    start_coherence_monitoring,
+    validate_reasoning,
+    validate_statement,
 )
 
 

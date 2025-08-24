@@ -4,7 +4,7 @@ Bayesian optimization algorithm
 
 import asyncio
 import random
-from typing import Dict, Any
+from typing import Any, Dict
 
 from ..data_models import OptimizationContext, OptimizationDecision
 

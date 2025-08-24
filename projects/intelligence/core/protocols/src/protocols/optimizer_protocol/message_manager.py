@@ -5,8 +5,9 @@ Message management for optimizer protocol
 import asyncio
 import time
 import uuid
-from typing import Dict, List, Any, Optional, Callable
-from .data_models import OptimizerMessage, MessageType, Priority, AgentInfo
+from typing import Any, Callable, Dict, List, Optional
+
+from .data_models import AgentInfo, MessageType, OptimizerMessage, Priority
 
 
 class MessageManager:

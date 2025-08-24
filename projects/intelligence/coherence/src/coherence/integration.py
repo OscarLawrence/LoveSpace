@@ -3,10 +3,10 @@ Integration layer connecting our coherence engine with existing OM validation co
 Provides unified interface for all coherence validation needs.
 """
 
-import sys
 import os
-from typing import List, Dict, Any, Optional
+import sys
 from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 # Add the validation modules to path
 validation_path = Path(__file__).parent.parent.parent / "core" / "validation"
@@ -14,9 +14,11 @@ if validation_path.exists():
     sys.path.insert(0, str(validation_path.parent))
 
 try:
-    from core.validation.logical_coherence_validator import LogicalCoherenceValidator as OMValidator
     from core.validation.coherence_scorer import CoherenceScorer
     from core.validation.contradiction_detector import ContradictionDetector
+    from core.validation.logical_coherence_validator import (
+        LogicalCoherenceValidator as OMValidator,
+    )
     OM_AVAILABLE = True
 except ImportError:
     OM_AVAILABLE = False
@@ -24,8 +26,8 @@ except ImportError:
     CoherenceScorer = None
     ContradictionDetector = None
 
-from .validator import LogicalCoherenceValidator, CoherenceResult, CoherenceLevel
 from .monitor import CoherenceMonitor
+from .validator import CoherenceLevel, CoherenceResult, LogicalCoherenceValidator
 
 
 class UnifiedCoherenceEngine:

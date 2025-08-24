@@ -3,13 +3,14 @@ Core systems management for integration
 """
 
 import asyncio
-from typing import Dict, Any, Optional
 import json
 from pathlib import Path
+from typing import Any, Dict, Optional
 
 try:
     from ai_optimizer import AIOptimizer
     from performance_metrics import MetricsCollector, PerformanceTracker
+
     from protocols.optimizer_protocol import OptimizerProtocol
 except ImportError:
     AIOptimizer = MetricsCollector = PerformanceTracker = OptimizerProtocol = None

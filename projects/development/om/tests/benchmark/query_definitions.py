@@ -3,6 +3,7 @@ Benchmark query definitions for testing context injection
 """
 
 from typing import List
+
 from .data_models import BenchmarkQuery
 
 

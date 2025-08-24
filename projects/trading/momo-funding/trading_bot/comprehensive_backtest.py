@@ -12,18 +12,18 @@ Tests the correlation breakdown strategy across different market regimes:
 Provides statistical significance testing and regime-specific performance analysis.
 """
 
-import sys
-from pathlib import Path
-from datetime import datetime, timedelta
-import logging
 import json
-from typing import Dict, List, Any
+import logging
+import sys
+from datetime import datetime, timedelta
+from pathlib import Path
+from typing import Any, Dict, List
 
 # Add module paths
 current_dir = Path(__file__).parent
 sys.path.insert(0, str(current_dir))
 
-from backtesting.coherent_backtester import CoherentBacktester, BacktestConfig
+from backtesting.coherent_backtester import BacktestConfig, CoherentBacktester
 from dynamic_market_discovery import DynamicMarketDiscovery
 
 # Configure logging

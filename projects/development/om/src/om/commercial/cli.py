@@ -1,17 +1,19 @@
 """Commercial CLI main entry point."""
 
 import sys
-import click
 from pathlib import Path
+
+import click
 
 # Add the OM package to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from om.cli.main import main as om_main
-from .cli_wrapper import cli_wrapper
-from .onboarding import OnboardingSystem
+
 from .analytics import AnalyticsCollector
+from .cli_wrapper import cli_wrapper
 from .docs import DocumentationGenerator
+from .onboarding import OnboardingSystem
 
 
 @click.group(invoke_without_command=True)
@@ -126,12 +128,12 @@ def wrap_om_commands():
     
     # Get original OM command groups
     try:
-        from om.cli.workspace import workspace
-        from om.cli.docs import docs
         from om.cli.code import code
+        from om.cli.docs import docs
         from om.cli.find import find
-        from om.cli.scaffold import scaffold
         from om.cli.memory import memory
+        from om.cli.scaffold import scaffold
+        from om.cli.workspace import workspace
         
         # Wrap commands with commercial checks
         wrapped_workspace = cli_wrapper.wrap_command(workspace, "workspace")

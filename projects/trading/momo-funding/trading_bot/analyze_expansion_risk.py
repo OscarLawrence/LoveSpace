@@ -4,8 +4,10 @@ Risk Analysis: Expanding to ALL Coins vs Top 10-100
 Mathematical analysis of liquidity, slippage, and execution risks.
 """
 
-from scientific_trader import ScientificTrader
 import time
+
+from scientific_trader import ScientificTrader
+
 
 def analyze_expansion_risks():
     """

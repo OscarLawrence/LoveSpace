@@ -2,9 +2,9 @@
 Data models for optimization engine
 """
 
-from typing import Dict, List, Any
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any, Dict, List
 
 
 class OptimizationObjective(Enum):

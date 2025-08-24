@@ -3,8 +3,9 @@ Communication handlers for optimizer protocol
 """
 
 import time
-from typing import Dict, Any, Optional
-from .data_models import OptimizerMessage, MessageType, Priority, AgentInfo
+from typing import Any, Dict, Optional
+
+from .data_models import AgentInfo, MessageType, OptimizerMessage, Priority
 
 
 class CommunicationHandlers:

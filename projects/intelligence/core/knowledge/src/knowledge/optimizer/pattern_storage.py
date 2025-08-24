@@ -2,12 +2,13 @@
 Pattern storage and retrieval for optimizer
 """
 
-import time
 import json
-import numpy as np
-from typing import Dict, List, Any, Optional, Tuple
+import time
 from collections import defaultdict
 from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
 
 from .data_models import PerformancePattern
 

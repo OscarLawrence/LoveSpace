@@ -4,11 +4,12 @@ Main example generator using modular components
 
 from pathlib import Path
 from typing import List
+
 from .data_models import IntegrationExample
-from .workflow_generator import WorkflowGenerator
+from .markdown_generator import MarkdownGenerator
 from .patterns_generator import PatternsGenerator
 from .use_cases_generator import UseCasesGenerator
-from .markdown_generator import MarkdownGenerator
+from .workflow_generator import WorkflowGenerator
 
 
 class ExampleGenerator:

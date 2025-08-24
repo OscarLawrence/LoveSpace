@@ -3,13 +3,14 @@
 Integrates Sphinx auto-generation with CLI interface.
 """
 
-import click
-from pathlib import Path
-from typing import Optional, List
 import json
+from pathlib import Path
+from typing import List, Optional
 
-from .sphinx_auto import DocumentationBuilder, CodeAnalyzer, SphinxGenerator
+import click
+
 from .scoped_cli import scoped_command, validate_scope
+from .sphinx_auto import CodeAnalyzer, DocumentationBuilder, SphinxGenerator
 
 
 @click.group()
@@ -199,8 +200,8 @@ def serve(docs_dir, host, port):
     
     try:
         import http.server
-        import socketserver
         import os
+        import socketserver
         
         os.chdir(build_dir)
         handler = http.server.SimpleHTTPRequestHandler

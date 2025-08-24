@@ -4,8 +4,9 @@ Reinforcement learning optimization algorithm
 
 import asyncio
 import random
+from typing import Any, Dict, Tuple
+
 import numpy as np
-from typing import Dict, Any, Tuple
 
 from ..data_models import OptimizationContext, OptimizationDecision
 

@@ -5,6 +5,7 @@ Modular implementation split across multiple files for maintainability.
 """
 
 from typing import List
+
 from .db_manager import Pattern
 from .patterns import get_enhanced_patterns
 

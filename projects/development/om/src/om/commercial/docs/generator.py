@@ -1,9 +1,10 @@
 """Documentation generation core."""
 
 import json
-from typing import Dict, Any, List
 from pathlib import Path
-from ..license import SubscriptionManager, PlanTier
+from typing import Any, Dict, List
+
+from ..license import PlanTier, SubscriptionManager
 
 
 class DocumentationGenerator:

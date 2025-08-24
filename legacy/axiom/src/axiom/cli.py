@@ -13,7 +13,12 @@ from rich.markdown import Markdown
 from rich.panel import Panel
 from rich.prompt import Prompt
 
-from .anthropic_client import AnthropicClient, AnthropicMessage, create_anthropic_client, load_system_message
+from .anthropic_client import (
+    AnthropicClient,
+    AnthropicMessage,
+    create_anthropic_client,
+    load_system_message,
+)
 from .contracts import ChatSessionContract, ContractViolation, contract_enforced
 
 console = Console()

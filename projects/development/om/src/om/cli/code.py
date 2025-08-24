@@ -1,9 +1,11 @@
 """Code parsing and analysis commands."""
 
-import click
 import subprocess
 import sys
 from pathlib import Path
+
+import click
+
 from .utils import _check_code_parser
 
 
@@ -24,6 +26,7 @@ def parse(full, enhanced):
     
     try:
         from code_parser.python_parser import PythonParser
+
         from knowledge.db_manager import ContextDB
         
         parser = PythonParser()

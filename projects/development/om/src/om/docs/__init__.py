@@ -1,7 +1,7 @@
 """Documentation generation module."""
 
 from .code_analyzer import CodeAnalyzer, CodeElement
-from .sphinx_generator import SphinxGenerator
 from .documentation_builder import DocumentationBuilder
+from .sphinx_generator import SphinxGenerator
 
 __all__ = ['CodeAnalyzer', 'CodeElement', 'SphinxGenerator', 'DocumentationBuilder']

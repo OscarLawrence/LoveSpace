@@ -2,8 +2,8 @@
 Project discovery for workspace integration
 """
 
-from typing import List, Dict, Any
 from pathlib import Path
+from typing import Any, Dict, List
 
 from .data_models import ProjectIntegration
 

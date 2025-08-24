@@ -2,9 +2,9 @@
 Data models for workflow automation
 """
 
-from typing import Dict, List, Any
 from dataclasses import dataclass, field
 from datetime import datetime
+from typing import Any, Dict, List
 
 
 @dataclass

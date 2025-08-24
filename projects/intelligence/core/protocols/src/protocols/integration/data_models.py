@@ -2,9 +2,9 @@
 Data models for integration management
 """
 
-from typing import Dict, List, Any
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any, Dict, List
 
 
 @dataclass

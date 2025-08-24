@@ -4,18 +4,18 @@ Clean, coherent AI collaboration platform
 """
 import os
 from contextlib import asynccontextmanager
+
 from dotenv import load_dotenv
 
 # Load environment variables FIRST (auto-resolves .env up the directory tree)
 load_dotenv()
 
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from fastapi.staticfiles import StaticFiles
-from fastapi.middleware.cors import CORSMiddleware
-
-from api.sessions import router as sessions_router
 from api.messages import router as messages_router
+from api.sessions import router as sessions_router
 from core.session_manager import SessionManager
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 # Global session manager
 session_manager = SessionManager()

@@ -3,9 +3,10 @@ Health monitoring and service recovery
 """
 
 import asyncio
-import time
 import random
+import time
 from typing import Dict, List
+
 from .data_models import ServiceInfo, ServiceStatus
 
 

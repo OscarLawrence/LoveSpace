@@ -2,16 +2,15 @@
 Optimizer integration package
 """
 
-from .data_models import PerformancePattern, OptimizationSession
-from .pattern_storage import PatternStorage
-from .session_manager import SessionManager
-from .recommendation_engine import RecommendationEngine
-from .memory_consolidation import MemoryConsolidation
-from .analysis import PerformanceAnalyzer
-from .memory_optimizer import MemoryIntegratedOptimizer
-
 # Import AIOptimizer from parent module
 from ..optimizer import AIOptimizer
+from .analysis import PerformanceAnalyzer
+from .data_models import OptimizationSession, PerformancePattern
+from .memory_consolidation import MemoryConsolidation
+from .memory_optimizer import MemoryIntegratedOptimizer
+from .pattern_storage import PatternStorage
+from .recommendation_engine import RecommendationEngine
+from .session_manager import SessionManager
 
 __all__ = [
     'AIOptimizer',

@@ -1,6 +1,7 @@
 """Session management commands."""
 
 import click
+
 from .utils import _check_memory
 
 
@@ -24,8 +25,8 @@ def save(project_id, module):
         manager = SessionManager()
         
         # Create context data from current workspace state
-        import os
         import json
+        import os
         context_data = {
             "current_task": f"session_save_{project_id}",
             "active_files": [],

@@ -1,19 +1,20 @@
 """Commercial CLI wrapper for OM tool."""
 
-import click
-import sys
-import os
 import datetime
-from typing import Optional, Dict, Any
+import os
+import sys
 from pathlib import Path
+from typing import Any, Dict, Optional
+
+import click
 
 from .license import (
-    LicenseValidator, 
-    SubscriptionManager, 
+    FeatureFlag,
     FeatureManager,
-    LicenseValidationError,
     FeatureNotAvailableError,
-    FeatureFlag
+    LicenseValidationError,
+    LicenseValidator,
+    SubscriptionManager,
 )
 
 

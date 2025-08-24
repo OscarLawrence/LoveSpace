@@ -3,14 +3,15 @@ Binance API Integration - Real Trading Execution
 Scientific trading with mathematical rigor and real capital.
 """
 
+import hashlib
+import hmac
 import os
 import time
-import hmac
-import hashlib
-import requests
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Any
 from datetime import datetime
+from typing import Any, Dict, List, Optional
+
+import requests
 
 # Load environment variables
 try:

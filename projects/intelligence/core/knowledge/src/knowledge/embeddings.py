@@ -1,10 +1,11 @@
 """Vector embeddings for semantic similarity search."""
 
 import os
-import numpy as np
 from typing import List, Optional
-from sentence_transformers import SentenceTransformer
+
+import numpy as np
 from dotenv import load_dotenv
+from sentence_transformers import SentenceTransformer
 
 # Load environment variables from parent directory
 load_dotenv('/home/vincent/Documents/Momo/.env')

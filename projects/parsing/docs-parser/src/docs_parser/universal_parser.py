@@ -1,7 +1,7 @@
 """Universal documentation parser using docling for any HTML/PDF source."""
 
 import re
-from typing import Optional, Dict, List
+from typing import Dict, List, Optional
 from urllib.parse import urlparse
 
 try:

@@ -4,8 +4,8 @@ __version__ = "1.0.0"
 
 # Import main components
 from . import license
+from .analytics import AnalyticsCollector, PerformanceMetric, UsageMetric
 from .cli_wrapper import CommercialCLIWrapper, cli_wrapper
-from .analytics import AnalyticsCollector, UsageMetric, PerformanceMetric
 from .docs import DocumentationGenerator
 from .onboarding import OnboardingSystem
 

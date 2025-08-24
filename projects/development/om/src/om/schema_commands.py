@@ -1,10 +1,15 @@
 """Schema generation commands for Om CLI."""
 
-import click
-from pathlib import Path
 import json
+from pathlib import Path
 
-from .schema_generation import SchemaGenerator, TypeDocumentationGenerator, SchemaValidator
+import click
+
+from .schema_generation import (
+    SchemaGenerator,
+    SchemaValidator,
+    TypeDocumentationGenerator,
+)
 from .scoped_cli import scoped_command, validate_scope
 
 

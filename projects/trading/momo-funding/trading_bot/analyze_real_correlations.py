@@ -4,8 +4,10 @@ Real Market Correlation Analysis
 Analyze actual correlation patterns in live market data vs testnet fake data.
 """
 
-from optimal_trading_system import OptimalTradingSystem
 from datetime import datetime
+
+from optimal_trading_system import OptimalTradingSystem
+
 
 def analyze_real_market_correlations():
     """

@@ -4,13 +4,14 @@ Multi-dimensional performance data collection
 """
 
 import asyncio
-import time
 import threading
-from typing import Dict, List, Any, Optional, Callable
-from dataclasses import dataclass, field
+import time
 from collections import defaultdict, deque
-import numpy as np
+from dataclasses import dataclass, field
 from enum import Enum
+from typing import Any, Callable, Dict, List, Optional
+
+import numpy as np
 
 
 class MetricType(Enum):

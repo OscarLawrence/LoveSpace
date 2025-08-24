@@ -4,11 +4,11 @@ Main real-time optimization engine
 
 import asyncio
 import time
-from typing import Dict, List, Any, Optional
 from collections import deque
+from typing import Any, Dict, List, Optional
 
+from .analysis import AlgorithmSelector, ContextAnalyzer
 from .data_models import OptimizationContext, OptimizationDecision
-from .analysis import ContextAnalyzer, AlgorithmSelector
 from .validation import DecisionValidator
 
 

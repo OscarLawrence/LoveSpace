@@ -1,6 +1,7 @@
 """Memory and session management commands."""
 
 import click
+
 from .utils import _check_memory
 
 

@@ -1,7 +1,8 @@
 """API reference and integration documentation."""
 
-from typing import Dict, Any
-from ..license import SubscriptionManager, PlanTier
+from typing import Any, Dict
+
+from ..license import PlanTier, SubscriptionManager
 
 
 class APIDocumentationGenerator:

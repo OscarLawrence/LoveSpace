@@ -6,11 +6,12 @@ Provides hooks for validation at key decision points.
 """
 
 import json
-from typing import Dict, List, Optional, Any
+from typing import Any, Dict, List, Optional
+
+from .auto_halt_controller import AutoHaltController
 from .logical_coherence_validator import LogicalCoherenceValidator
 from .prerequisite_checker import PrerequisiteChecker
 from .token_efficiency_optimizer import TokenEfficiencyOptimizer
-from .auto_halt_controller import AutoHaltController
 from .validation_models import ValidationResult
 
 

@@ -3,7 +3,7 @@ Function schema generation
 """
 
 import ast
-from typing import Dict, Any
+from typing import Any, Dict
 
 from .type_analyzer import TypeAnalyzer
 

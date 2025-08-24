@@ -4,7 +4,7 @@ Genetic algorithm optimization
 
 import asyncio
 import random
-from typing import Dict, Any, List
+from typing import Any, Dict, List
 
 from ..data_models import OptimizationContext, OptimizationDecision
 

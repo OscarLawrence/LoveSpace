@@ -2,11 +2,11 @@
 Optimization algorithms package
 """
 
-from .gradient_descent import GradientDescentOptimizer
+from .adaptive import AdaptiveOptimizer
 from .bayesian import BayesianOptimizer
 from .genetic import GeneticOptimizer
+from .gradient_descent import GradientDescentOptimizer
 from .reinforcement import ReinforcementOptimizer
-from .adaptive import AdaptiveOptimizer
 
 __all__ = [
     'GradientDescentOptimizer',

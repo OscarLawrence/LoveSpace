@@ -1,6 +1,7 @@
 """Module isolation commands."""
 
 import click
+
 from .utils import _check_memory
 
 

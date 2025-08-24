@@ -3,12 +3,13 @@ Real-time coherence monitoring system.
 Integrates with existing OM validation components for continuous coherence tracking.
 """
 
-from typing import List, Dict, Any, Optional, Callable
-from dataclasses import dataclass, field
-from datetime import datetime
 import threading
 import time
-from .validator import LogicalCoherenceValidator, CoherenceResult, CoherenceLevel
+from dataclasses import dataclass, field
+from datetime import datetime
+from typing import Any, Callable, Dict, List, Optional
+
+from .validator import CoherenceLevel, CoherenceResult, LogicalCoherenceValidator
 
 
 @dataclass

@@ -7,6 +7,7 @@ Verify what endpoints we can access and what documentation we need.
 import requests
 from execution.binance_connector import create_binance_connector
 
+
 def check_binance_api_capabilities():
     """Check what Binance API endpoints we can access."""
     print("🔍 BINANCE API ACCESS CHECK")
