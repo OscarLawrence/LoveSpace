@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 from typing import Any, Dict, List
 
-import anthropic
+from .anthropic_client import create_client
 from dotenv import load_dotenv
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse
@@ -23,7 +23,10 @@ from .tools import execute, list_dir, read_file, write_file
 
 def build_system_message():
     """Build system message with tool functions included"""
-    base_message = Path('/home/vincent/Documents/Momo/MomoAI/MomoAI/projects/axiom/backend/system_message.txt').read_text()
+    # Use relative path from current file location
+    current_dir = Path(__file__).parent
+    system_message_path = current_dir / "system_message.txt"
+    base_message = system_message_path.read_text()
     
     # Get source code of all tool functions
     tools_source = []
@@ -100,7 +103,7 @@ def execute_tool_call(call: Dict[str, Any]) -> str:
 
 async def stream_response(websocket: WebSocket, session: Session, user_message: str):
     """Stream Claude response with tool execution"""
-    client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+    client = create_client()
     
     session.add_message("user", user_message)
     
@@ -108,49 +111,46 @@ async def stream_response(websocket: WebSocket, session: Session, user_message: 
         # Start streaming
         await websocket.send_json({"type": "start"})
         
-        with client.messages.stream(
+        accumulated = ""
+        stream_generator = client.stream_messages(
             model="claude-sonnet-4-20250514",
             max_tokens=4096,
             system=build_system_message(),
             messages=session.messages
-        ) as stream:
-            accumulated = ""
+        )
+        
+        async for text in stream_generator:
+            accumulated += text
+            await websocket.send_json({"type": "token", "content": text})
             
-            for text in stream.text_stream:
-                accumulated += text
-                await websocket.send_json({"type": "token", "content": text})
+            # Check for complete tool blocks
+            if '@@exec' in accumulated and '@@end' in accumulated:
+                # We might have complete tool calls
+                tool_calls = extract_tool_calls(accumulated)
                 
-                # Check for complete tool blocks
-                if '@@exec' in accumulated and '@@end' in accumulated:
-                    # We might have complete tool calls
-                    tool_calls = extract_tool_calls(accumulated)
+                if tool_calls:
+                    # Execute all tool calls
+                    results = []
+                    for call in tool_calls:
+                        result = execute_tool_call(call)
+                        results.append(f"{call['function']}({', '.join(repr(a) for a in call['args'])}) returned:\n{result}")
                     
-                    if tool_calls:
-                        # Stop streaming to execute tools
-                        stream.close()
-                        
-                        # Execute all tool calls
-                        results = []
-                        for call in tool_calls:
-                            result = execute_tool_call(call)
-                            results.append(f"{call['function']}({', '.join(repr(a) for a in call['args'])}) returned:\n{result}")
-                        
-                        # Send tool results to client
-                        tool_output = "\n\n".join(results)
-                        await websocket.send_json({"type": "tool_result", "content": tool_output})
-                        
-                        # Add to conversation
-                        session.add_message("assistant", accumulated)
-                        session.add_message("user", f"Tool execution results:\n{tool_output}\n\nContinue with your response.")
-                        
-                        # Continue with new stream
-                        await stream_response(websocket, session, "")
-                        return
-            
-            # No tool calls, complete normal message
-            session.add_message("assistant", accumulated)
-            await websocket.send_json({"type": "complete"})
-            
+                    # Send tool results to client
+                    tool_output = "\n\n".join(results)
+                    await websocket.send_json({"type": "tool_result", "content": tool_output})
+                    
+                    # Add to conversation
+                    session.add_message("assistant", accumulated)
+                    session.add_message("user", f"Tool execution results:\n{tool_output}\n\nContinue with your response.")
+                    
+                    # Continue with new stream
+                    await stream_response(websocket, session, "")
+                    return
+        
+        # No tool calls, complete normal message
+        session.add_message("assistant", accumulated)
+        await websocket.send_json({"type": "complete"})
+        
     except Exception as e:
         await websocket.send_json({"type": "error", "content": str(e)})
 

@@ -7,7 +7,6 @@ name = "axiom"
 version = "0.1.0"
 description = "Minimal web chat interface for direct Claude communication"
 dependencies = [
-    "anthropic>=0.64.0",
     "fastapi[standard]>=0.116.1",
     "httpx>=0.28.1",
     "pydantic>=2.11.7",

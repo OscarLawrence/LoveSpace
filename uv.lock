@@ -215,7 +215,6 @@ name = "axiom"
 version = "0.1.0"
 source = { editable = "projects/interfaces/axiom/backend" }
 dependencies = [
-    { name = "anthropic" },
     { name = "fastapi", extra = ["standard"] },
     { name = "httpx" },
     { name = "pydantic" },
@@ -231,7 +230,6 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "anthropic", specifier = ">=0.64.0" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.116.1" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "pydantic", specifier = ">=2.11.7" },
