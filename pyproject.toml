@@ -38,6 +38,7 @@ members = [
     "projects/trading/momo-funding",
     "projects/trading/revenue",
     "projects/tools/docs",
+    "projects/tools/workspace-knowledge",
 ]
 
 [tool.ruff]
