@@ -11,11 +11,11 @@ from .onboarding import OnboardingSystem
 
 __all__ = [
     "license",
-    "CommercialCLIWrapper", 
+    "CommercialCLIWrapper",
     "cli_wrapper",
     "AnalyticsCollector",
     "UsageMetric",
-    "PerformanceMetric", 
+    "PerformanceMetric",
     "DocumentationGenerator",
-    "OnboardingSystem"
+    "OnboardingSystem",
 ]

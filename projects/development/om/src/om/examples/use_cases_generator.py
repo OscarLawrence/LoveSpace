@@ -3,24 +3,23 @@ Use case examples generator
 """
 
 import textwrap
-from typing import List
 
 from .data_models import IntegrationExample
 
 
 class UseCasesGenerator:
     """Generates specific use case examples"""
-    
-    def generate_examples(self) -> List[IntegrationExample]:
+
+    def generate_examples(self) -> list[IntegrationExample]:
         """Generate specific use case examples."""
         examples = []
-        
+
         examples.append(self._create_open_source_setup())
         examples.append(self._create_enterprise_setup())
         examples.append(self._create_library_docs())
-        
+
         return examples
-    
+
     def _create_open_source_setup(self) -> IntegrationExample:
         """Create open source project setup example"""
         return IntegrationExample(
@@ -81,9 +80,9 @@ class UseCasesGenerator:
             prerequisites=["Python project", "GitHub repository"],
             related_commands=["docs generate", "docs coverage", "docs schema"],
             expected_output="Complete documentation site ready for GitHub Pages",
-            tags=["open_source", "github_pages", "community", "api_docs"]
+            tags=["open_source", "github_pages", "community", "api_docs"],
         )
-    
+
     def _create_enterprise_setup(self) -> IntegrationExample:
         """Create enterprise project setup example"""
         return IntegrationExample(
@@ -149,11 +148,15 @@ class UseCasesGenerator:
                 Ensures enterprise-grade documentation quality.
             """).strip(),
             prerequisites=["Enterprise environment", "Compliance requirements"],
-            related_commands=["docs coverage gate", "docs generate", "docs security-scan"],
+            related_commands=[
+                "docs coverage gate",
+                "docs generate",
+                "docs security-scan",
+            ],
             expected_output="Enterprise-grade documentation with compliance reports",
-            tags=["enterprise", "compliance", "quality", "security"]
+            tags=["enterprise", "compliance", "quality", "security"],
         )
-    
+
     def _create_library_docs(self) -> IntegrationExample:
         """Create library documentation example"""
         return IntegrationExample(
@@ -223,5 +226,5 @@ class UseCasesGenerator:
             prerequisites=["Python library", "Type hints", "Docstrings"],
             related_commands=["docs generate", "docs schema", "docs examples"],
             expected_output="Complete library documentation with API reference",
-            tags=["library", "api", "examples", "reference"]
+            tags=["library", "api", "examples", "reference"],
         )

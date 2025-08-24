@@ -54,7 +54,9 @@ class TestAnthropicClient:
     @patch.dict(os.environ, {}, clear=True)
     def test_client_initialization_no_api_key(self) -> None:
         """Test client initialization without API key."""
-        with pytest.raises(ContractViolation, match="ANTHROPIC_API_KEY environment variable not found"):
+        with pytest.raises(
+            ContractViolation, match="ANTHROPIC_API_KEY environment variable not found"
+        ):
             AnthropicClient()
 
     @patch.dict(os.environ, {"ANTHROPIC_API_KEY": "test_key"})
@@ -88,10 +90,10 @@ class TestAnthropicClient:
             "content": [{"type": "text", "text": "Hello! How can I help you?"}],
             "usage": {"input_tokens": 10, "output_tokens": 8},
             "model": "claude-sonnet-4-20250514",
-            "stop_reason": "end_turn"
+            "stop_reason": "end_turn",
         }
 
-        with patch.object(client.client, 'post') as mock_post:
+        with patch.object(client.client, "post") as mock_post:
             mock_response = AsyncMock()
             mock_response.json.return_value = mock_response_data
             mock_response.raise_for_status.return_value = None
@@ -111,7 +113,7 @@ class TestAnthropicClient:
         """Test handling of API errors."""
         client = AnthropicClient()
 
-        with patch.object(client.client, 'post') as mock_post:
+        with patch.object(client.client, "post") as mock_post:
             mock_post.side_effect = httpx.HTTPError("API Error")
 
             messages = [AnthropicMessage(role="user", content="Hello")]
@@ -127,14 +129,16 @@ class TestAnthropicClient:
         # Mock response missing required fields
         mock_response_data = {"invalid": "response"}
 
-        with patch.object(client.client, 'post') as mock_post:
+        with patch.object(client.client, "post") as mock_post:
             mock_response = AsyncMock()
             mock_response.json.return_value = mock_response_data
             mock_response.raise_for_status.return_value = None
             mock_post.return_value = mock_response
 
             messages = [AnthropicMessage(role="user", content="Hello")]
-            with pytest.raises(ContractViolation, match="API response missing content field"):
+            with pytest.raises(
+                ContractViolation, match="API response missing content field"
+            ):
                 await client.send_message(messages)
 
 

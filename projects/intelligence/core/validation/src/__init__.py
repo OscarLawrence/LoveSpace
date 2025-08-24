@@ -37,15 +37,30 @@ from .token_efficiency_optimizer import TokenEfficiencyOptimizer
 
 __all__ = [
     # New micro modules
-    'ValidationStatus', 'HaltReason', 'ValidationResult', 'ContradictionReport',
-    'ContextCompleteness', 'TokenAnalysis', 'HaltEvent', 'CoherenceScore',
-    'PatternMatch', 'ValidationSession', 'ValidationConfig',
-    'create_validation_session', 'get_validation_session', 'close_validation_session',
-    'ContradictionDetector', 'ContextValidator', 'TokenAnalyzer',
-    'HaltController', 'CoherenceScorer', 'PatternMatcher',
-    'OMIntegration',
-    
+    "ValidationStatus",
+    "HaltReason",
+    "ValidationResult",
+    "ContradictionReport",
+    "ContextCompleteness",
+    "TokenAnalysis",
+    "HaltEvent",
+    "CoherenceScore",
+    "PatternMatch",
+    "ValidationSession",
+    "ValidationConfig",
+    "create_validation_session",
+    "get_validation_session",
+    "close_validation_session",
+    "ContradictionDetector",
+    "ContextValidator",
+    "TokenAnalyzer",
+    "HaltController",
+    "CoherenceScorer",
+    "PatternMatcher",
+    "OMIntegration",
     # Legacy (to be split)
-    'LogicalCoherenceValidator', 'PrerequisiteChecker', 
-    'TokenEfficiencyOptimizer', 'AutoHaltController'
+    "LogicalCoherenceValidator",
+    "PrerequisiteChecker",
+    "TokenEfficiencyOptimizer",
+    "AutoHaltController",
 ]

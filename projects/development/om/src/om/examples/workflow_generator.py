@@ -3,25 +3,24 @@ Workflow examples generator
 """
 
 import textwrap
-from typing import List
 
 from .data_models import IntegrationExample
 
 
 class WorkflowGenerator:
     """Generates workflow-based integration examples"""
-    
-    def generate_examples(self) -> List[IntegrationExample]:
+
+    def generate_examples(self) -> list[IntegrationExample]:
         """Generate workflow-based integration examples."""
         examples = []
-        
+
         # Documentation workflow
         examples.append(self._create_docs_workflow())
         examples.append(self._create_agent_workflow())
         examples.append(self._create_qa_pipeline())
-        
+
         return examples
-    
+
     def _create_docs_workflow(self) -> IntegrationExample:
         """Create documentation generation workflow example"""
         return IntegrationExample(
@@ -29,7 +28,7 @@ class WorkflowGenerator:
             description="Generate comprehensive documentation with coverage enforcement and schema validation",
             category="documentation",
             difficulty="intermediate",
-            code=textwrap.dedent("""
+            code=textwrap.dedent(r"""
                 # Step 1: Auto-scope to documentation domain
                 om --auto-scope "generate complete project documentation"
                 
@@ -63,11 +62,16 @@ class WorkflowGenerator:
                 The workflow ensures 100% documentation coverage with quality validation.
             """).strip(),
             prerequisites=["Source code with type hints", "Sphinx installed"],
-            related_commands=["docs generate", "docs coverage", "docs schema", "docs serve"],
+            related_commands=[
+                "docs generate",
+                "docs coverage",
+                "docs schema",
+                "docs serve",
+            ],
             expected_output="Complete documentation site with coverage reports and type schemas",
-            tags=["documentation", "quality", "automation", "sphinx"]
+            tags=["documentation", "quality", "automation", "sphinx"],
         )
-    
+
     def _create_agent_workflow(self) -> IntegrationExample:
         """Create agent-optimized workflow example"""
         return IntegrationExample(
@@ -116,9 +120,9 @@ class WorkflowGenerator:
             prerequisites=["Om CLI installed", "Project with multiple modules"],
             related_commands=["scope auto", "scope set", "scope show", "scope clear"],
             expected_output="Focused command sets per work domain with session persistence",
-            tags=["agent", "scoping", "cognitive_load", "workflow"]
+            tags=["agent", "scoping", "cognitive_load", "workflow"],
         )
-    
+
     def _create_qa_pipeline(self) -> IntegrationExample:
         """Create quality assurance pipeline example"""
         return IntegrationExample(
@@ -175,8 +179,12 @@ class WorkflowGenerator:
                 
                 The pipeline fails fast on quality violations and provides clear feedback.
             """).strip(),
-            prerequisites=["Bash shell", "Om CLI installed", "Source code with documentation"],
+            prerequisites=[
+                "Bash shell",
+                "Om CLI installed",
+                "Source code with documentation",
+            ],
             related_commands=["docs generate", "docs coverage", "docs schema"],
             expected_output="Quality reports and validated documentation artifacts",
-            tags=["pipeline", "automation", "quality", "ci_cd"]
+            tags=["pipeline", "automation", "quality", "ci_cd"],
         )

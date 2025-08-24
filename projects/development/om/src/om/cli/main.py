@@ -6,7 +6,7 @@ import click
 from .code import code
 from .coherence import coherence
 from .deploy import deploy
-from .docs import docs, python
+from .docs import docs
 from .find import find
 from .isolate import isolate
 from .memory import memory
@@ -17,18 +17,18 @@ from .workspace import workspace
 
 
 @click.group()
-@click.option('--scope', help='Scope to specific modules/directories')
-@click.option('--auto-scope', is_flag=True, help='Auto-detect scope from git changes')
-@click.option('--no-scope', is_flag=True, help='Disable all scoping')
-@click.option('--scope-info', is_flag=True, help='Show current scope and exit')
+@click.option("--scope", help="Scope to specific modules/directories")
+@click.option("--auto-scope", is_flag=True, help="Auto-detect scope from git changes")
+@click.option("--no-scope", is_flag=True, help="Disable all scoping")
+@click.option("--scope-info", is_flag=True, help="Show current scope and exit")
 @click.pass_context
 def main(ctx, scope, auto_scope, no_scope, scope_info):
     """AI-first monorepo management CLI."""
     ctx.ensure_object(dict)
-    ctx.obj['scope'] = scope
-    ctx.obj['auto_scope'] = auto_scope
-    ctx.obj['no_scope'] = no_scope
-    ctx.obj['scope_info'] = scope_info
+    ctx.obj["scope"] = scope
+    ctx.obj["auto_scope"] = auto_scope
+    ctx.obj["no_scope"] = no_scope
+    ctx.obj["scope_info"] = scope_info
 
 
 # Register command groups
@@ -45,5 +45,5 @@ main.add_command(deploy)
 main.add_command(coherence)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

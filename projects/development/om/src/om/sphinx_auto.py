@@ -8,9 +8,9 @@ from .docs import CodeAnalyzer, CodeElement, DocumentationBuilder, SphinxGenerat
 from .docs.documentation_builder import batch_parse_with_sphinx
 
 __all__ = [
-    'CodeAnalyzer', 
-    'CodeElement', 
-    'SphinxGenerator', 
-    'DocumentationBuilder',
-    'batch_parse_with_sphinx'
+    "CodeAnalyzer",
+    "CodeElement",
+    "SphinxGenerator",
+    "DocumentationBuilder",
+    "batch_parse_with_sphinx",
 ]

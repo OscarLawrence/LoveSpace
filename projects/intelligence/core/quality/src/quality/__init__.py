@@ -11,8 +11,8 @@ from .micro_component_enforcer import MicroComponentEnforcer
 from .quality_gate_system import QualityGateSystem
 
 __all__ = [
-    'QualityGateSystem',
-    'MicroComponentEnforcer', 
-    'CollaborationValidator',
-    'ContinuousMonitoring'
+    "QualityGateSystem",
+    "MicroComponentEnforcer",
+    "CollaborationValidator",
+    "ContinuousMonitoring",
 ]

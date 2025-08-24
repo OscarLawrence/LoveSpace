@@ -3,8 +3,6 @@ Quality Metrics and Data Models
 """
 
 from dataclasses import dataclass
-from datetime import datetime
-from typing import Dict, List, Optional
 
 
 @dataclass
@@ -21,8 +19,8 @@ class QualityGateResult:
     gate_name: str
     passed: bool
     score: float
-    metrics: List[QualityMetric]
-    recommendations: List[str]
+    metrics: list[QualityMetric]
+    recommendations: list[str]
     timestamp: str
 
 

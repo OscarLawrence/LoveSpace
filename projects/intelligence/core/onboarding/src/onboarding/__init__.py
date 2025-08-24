@@ -12,9 +12,9 @@ from .codebase_navigator import CodebaseNavigator
 from .om_command_reference import OMCommandReference
 
 __all__ = [
-    'AgentOnboardingSystem',
-    'CodebaseNavigator',
-    'OMCommandReference', 
-    'CLUConstraintEnforcer',
-    'ArchitectureGuide'
+    "AgentOnboardingSystem",
+    "CodebaseNavigator",
+    "OMCommandReference",
+    "CLUConstraintEnforcer",
+    "ArchitectureGuide",
 ]

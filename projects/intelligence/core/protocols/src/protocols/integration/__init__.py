@@ -9,10 +9,10 @@ from .project_discovery import ProjectDiscovery
 from .system_manager import SystemManager
 
 __all__ = [
-    'ProjectIntegration',
-    'IntegrationStatus',
-    'IntegrationManager',
-    'ProjectDiscovery',
-    'HookFactory',
-    'SystemManager'
+    "ProjectIntegration",
+    "IntegrationStatus",
+    "IntegrationManager",
+    "ProjectDiscovery",
+    "HookFactory",
+    "SystemManager",
 ]

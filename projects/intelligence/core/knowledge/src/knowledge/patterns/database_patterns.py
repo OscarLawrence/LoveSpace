@@ -1,11 +1,9 @@
 """Database and data management patterns."""
 
-from typing import List
-
 from ..db_manager import Pattern
 
 
-def get_database_patterns() -> List[Pattern]:
+def get_database_patterns() -> list[Pattern]:
     """Get database-related patterns."""
     return [
         Pattern(
@@ -37,7 +35,7 @@ class DatabasePool:
 """,
             usage_context="Connection pooling for database efficiency",
             dependencies=["sqlite3"],
-            success_count=28
+            success_count=28,
         ),
         Pattern(
             name="database_migration_runner",
@@ -72,7 +70,7 @@ class MigrationRunner:
 """,
             usage_context="Database schema migration management",
             dependencies=["sqlite3"],
-            success_count=22
+            success_count=22,
         ),
         Pattern(
             name="database_transaction_context",
@@ -92,7 +90,7 @@ def database_transaction(connection):
 """,
             usage_context="Safe database transaction handling",
             dependencies=["contextlib"],
-            success_count=35
+            success_count=35,
         ),
         Pattern(
             name="orm_base_model",
@@ -129,7 +127,7 @@ class BaseModel:
 """,
             usage_context="Simple ORM base model implementation",
             dependencies=["sqlite3"],
-            success_count=18
+            success_count=18,
         ),
         Pattern(
             name="query_builder",
@@ -171,6 +169,6 @@ class QueryBuilder:
 """,
             usage_context="Fluent query building interface",
             dependencies=[],
-            success_count=25
-        )
+            success_count=25,
+        ),
     ]

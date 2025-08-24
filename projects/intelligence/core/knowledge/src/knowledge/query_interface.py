@@ -55,7 +55,9 @@ class ContextQuery:
 
         matching = []
         for pattern in patterns:
-            if pattern.dependencies and any(dep in pattern.dependencies for dep in dependencies):
+            if pattern.dependencies and any(
+                dep in pattern.dependencies for dep in dependencies
+            ):
                 matching.append(pattern)
 
         return matching
@@ -79,7 +81,9 @@ class ContextQuery:
 
         return stats
 
-    def search_by_keyword(self, keyword: str, language: str | None = None) -> dict[str, list[Any]]:
+    def search_by_keyword(
+        self, keyword: str, language: str | None = None
+    ) -> dict[str, list[Any]]:
         """Search functions, classes, and patterns by keyword."""
         results: dict[str, list[Any]] = {"functions": [], "classes": [], "patterns": []}
 
@@ -96,7 +100,8 @@ class ContextQuery:
         matching_patterns = []
         for pattern in all_patterns:
             if keyword.lower() in pattern.name.lower() or (
-                pattern.usage_context and keyword.lower() in pattern.usage_context.lower()
+                pattern.usage_context
+                and keyword.lower() in pattern.usage_context.lower()
             ):
                 matching_patterns.append(pattern)
         results["patterns"] = matching_patterns

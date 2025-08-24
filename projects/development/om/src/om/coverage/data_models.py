@@ -3,23 +3,24 @@ Data models for coverage enforcement
 """
 
 from dataclasses import dataclass
-from typing import List
 
 
 @dataclass
 class CoverageMetrics:
     """Documentation coverage metrics."""
+
     total_elements: int
     documented_elements: int
     coverage_percentage: float
-    missing_docs: List[str]
+    missing_docs: list[str]
     quality_score: float
-    issues: List[str]
+    issues: list[str]
 
 
 @dataclass
 class QualityIssue:
     """Documentation quality issue."""
+
     element_name: str
     element_type: str
     issue_type: str

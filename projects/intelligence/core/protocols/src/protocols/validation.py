@@ -51,7 +51,9 @@ class ValidationChain:
         # - Determine if task passes validation
         raise NotImplementedError("Validation chain not implemented")
 
-    def _determine_validation_levels(self, task: dict[str, Any]) -> list[ValidationLevel]:
+    def _determine_validation_levels(
+        self, task: dict[str, Any]
+    ) -> list[ValidationLevel]:
         """Determine which validation levels are required for a task."""
         # TODO: Implement risk assessment
         # - Code changes = automated + code review
@@ -59,7 +61,9 @@ class ValidationChain:
         # - Critical systems = all levels including human
         raise NotImplementedError("Risk assessment not implemented")
 
-    async def _run_automated_validation(self, result: dict[str, Any]) -> ValidationResult:
+    async def _run_automated_validation(
+        self, result: dict[str, Any]
+    ) -> ValidationResult:
         """Run automated validation checks."""
         # TODO: Implement automated validation
         # - Syntax checking

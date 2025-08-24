@@ -10,10 +10,10 @@ from .generator import SchemaGenerator
 from .type_analyzer import TypeAnalyzer
 
 __all__ = [
-    'TypeSchema',
-    'TypeAnalyzer',
-    'FunctionSchemaGenerator',
-    'ClassSchemaGenerator',
-    'TypeDocumentationGenerator',
-    'SchemaGenerator'
+    "TypeSchema",
+    "TypeAnalyzer",
+    "FunctionSchemaGenerator",
+    "ClassSchemaGenerator",
+    "TypeDocumentationGenerator",
+    "SchemaGenerator",
 ]

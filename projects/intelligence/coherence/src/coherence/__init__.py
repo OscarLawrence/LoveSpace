@@ -31,22 +31,19 @@ __version__ = "0.1.0"
 __all__ = [
     # Core classes
     "LogicalCoherenceValidator",
-    "CoherenceMonitor", 
+    "CoherenceMonitor",
     "UnifiedCoherenceEngine",
-    
     # Data classes
     "CoherenceResult",
     "CoherenceLevel",
     "CoherenceEvent",
-    
     # Factory functions
     "create_coherence_validator",
     "get_coherence_engine",
     "get_global_monitor",
-    
     # Convenience functions
     "validate_statement",
-    "validate_reasoning", 
+    "validate_reasoning",
     "validate_with_monitoring",
     "start_coherence_monitoring",
     "start_global_monitoring",

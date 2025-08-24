@@ -15,7 +15,9 @@ def temp_db() -> Generator[ContextDB, None, None]:
     # Create a unique temporary file path
     import os
 
-    db_path = os.path.join(tempfile.gettempdir(), f"test_db_{os.getpid()}_{id(temp_db)}.db")
+    db_path = os.path.join(
+        tempfile.gettempdir(), f"test_db_{os.getpid()}_{id(temp_db)}.db"
+    )
 
     db = ContextDB(db_path)
     yield db

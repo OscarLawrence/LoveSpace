@@ -9,9 +9,9 @@ from .gradient_descent import GradientDescentOptimizer
 from .reinforcement import ReinforcementOptimizer
 
 __all__ = [
-    'GradientDescentOptimizer',
-    'BayesianOptimizer',
-    'GeneticOptimizer',
-    'ReinforcementOptimizer',
-    'AdaptiveOptimizer'
+    "GradientDescentOptimizer",
+    "BayesianOptimizer",
+    "GeneticOptimizer",
+    "ReinforcementOptimizer",
+    "AdaptiveOptimizer",
 ]

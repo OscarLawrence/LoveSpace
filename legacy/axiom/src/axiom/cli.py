@@ -27,7 +27,7 @@ console = Console()
 class ChatSession:
     """
     Interactive chat session with Claude Sonnet 4.
-    
+
     Maintains conversation history and enforces formal contracts
     for all interactions.
     """
@@ -37,7 +37,7 @@ class ChatSession:
         self.client = client
         self.messages: list[AnthropicMessage] = []
         self.session_active = True
-        
+
         # Load system message
         try:
             self.system_message = load_system_message()
@@ -50,17 +50,19 @@ class ChatSession:
     async def run_interactive_session(self) -> None:
         """
         Run the main interactive chat loop with formal contract enforcement.
-        
+
         Raises:
             ContractViolation: If any formal contract is violated
         """
         # Display welcome message
-        console.print(Panel.fit(
-            "[bold blue]Axiom CLI[/bold blue]\n"
-            "Interactive chat with Claude Sonnet 4\n"
-            "[dim]Type 'exit' or 'quit' to end session[/dim]",
-            border_style="blue"
-        ))
+        console.print(
+            Panel.fit(
+                "[bold blue]Axiom CLI[/bold blue]\n"
+                "Interactive chat with Claude Sonnet 4\n"
+                "[dim]Type 'exit' or 'quit' to end session[/dim]",
+                border_style="blue",
+            )
+        )
 
         try:
             while self.session_active:
@@ -71,7 +73,7 @@ class ChatSession:
                     continue
 
                 # Check for exit commands
-                if user_input.lower().strip() in ['exit', 'quit', 'q']:
+                if user_input.lower().strip() in ["exit", "quit", "q"]:
                     console.print("[yellow]Ending session...[/yellow]")
                     break
 
@@ -96,15 +98,12 @@ class ChatSession:
     async def _get_user_input(self) -> str:
         """
         Get user input with validation.
-        
+
         Returns:
             Validated user input string
         """
         try:
-            user_input = Prompt.ask(
-                "\n[bold green]You[/bold green]",
-                default=""
-            )
+            user_input = Prompt.ask("\n[bold green]You[/bold green]", default="")
 
             # Contract validation: input must be non-empty after stripping
             if not user_input.strip():
@@ -120,7 +119,7 @@ class ChatSession:
     async def _get_claude_response(self) -> None:
         """
         Get response from Claude Sonnet 4 and display it.
-        
+
         Raises:
             ContractViolation: If response validation fails
         """
@@ -128,8 +127,7 @@ class ChatSession:
             # Show thinking indicator
             with console.status("[bold blue]Axiom is thinking...", spinner="dots"):
                 response = await self.client.send_message(
-                    self.messages,
-                    system_message=self.system_message
+                    self.messages, system_message=self.system_message
                 )
 
             # Extract response content
@@ -151,16 +149,14 @@ class ChatSession:
 
             # Display Axiom's response
             console.print("\n[bold blue]Axiom[/bold blue]")
-            console.print(Panel(
-                Markdown(claude_text),
-                border_style="blue",
-                padding=(1, 2)
-            ))
+            console.print(
+                Panel(Markdown(claude_text), border_style="blue", padding=(1, 2))
+            )
 
             # Display token usage
             usage = response.usage
-            input_tokens = usage.get('input_tokens', 0)
-            output_tokens = usage.get('output_tokens', 0)
+            input_tokens = usage.get("input_tokens", 0)
+            output_tokens = usage.get("output_tokens", 0)
             console.print(
                 f"[dim]Tokens: {input_tokens} input, {output_tokens} output[/dim]"
             )
@@ -173,15 +169,11 @@ class ChatSession:
 
 
 @click.command()
-@click.option(
-    "--debug",
-    is_flag=True,
-    help="Enable debug mode with verbose output"
-)
+@click.option("--debug", is_flag=True, help="Enable debug mode with verbose output")
 def main(debug: bool) -> None:
     """
     Axiom CLI - Interactive chat with Claude Sonnet 4.
-    
+
     A minimal, coherent interface with formal contract enforcement
     and no system message pollution.
     """
@@ -205,7 +197,7 @@ def main(debug: bool) -> None:
 async def _run_chat_session() -> None:
     """
     Initialize and run the chat session with formal contracts.
-    
+
     Raises:
         ContractViolation: If any formal contract is violated
     """

@@ -2,12 +2,12 @@
 
 import datetime
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
 class UsageMetric:
     """Individual usage metric."""
+
     timestamp: str
     command: str
     duration_ms: int
@@ -19,6 +19,7 @@ class UsageMetric:
 @dataclass
 class PerformanceMetric:
     """Performance metric."""
+
     timestamp: str
     cpu_percent: float
     memory_mb: float
@@ -29,6 +30,7 @@ class PerformanceMetric:
 @dataclass
 class ErrorMetric:
     """Error tracking metric."""
+
     timestamp: str
     command: str
     error_type: str
@@ -38,25 +40,25 @@ class ErrorMetric:
 
 class MetricUtils:
     """Utility functions for metrics."""
-    
+
     @staticmethod
     def generate_session_id() -> str:
         """Generate unique session ID."""
         import hashlib
+
         timestamp = datetime.datetime.now().isoformat()
         return hashlib.md5(timestamp.encode()).hexdigest()[:8]
-    
+
     @staticmethod
     def get_user_id(data_dir) -> str:
         """Get anonymized user ID."""
         import hashlib
-        from pathlib import Path
-        
+
         user_file = data_dir / "user_id"
-        
+
         if user_file.exists():
             return user_file.read_text().strip()
-        
+
         # Generate new user ID
         user_id = hashlib.md5(str(datetime.datetime.now()).encode()).hexdigest()[:12]
         user_file.write_text(user_id)

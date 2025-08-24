@@ -27,7 +27,7 @@ Implementation:
     class ScopedToolProvider:                                      # ~100 lines
         scopes = {
             "docs": ["docs.*"],
-            "memory": ["memory.*", "session.*", "preferences.*"], 
+            "memory": ["memory.*", "session.*", "preferences.*"],
             "analysis": ["analyze.*"],
             "code": ["code.*", "find.*"],
             "parsing": ["populate-patterns", "modules.*"]
@@ -60,7 +60,7 @@ Estimated: 2-3 hours
 
 Components:
 - docs/conf.py: Sphinx configuration with autodoc, napoleon, typehints
-- om docs generate: CLI command to build HTML/PDF from docstrings  
+- om docs generate: CLI command to build HTML/PDF from docstrings
 - Auto-discovery: Scan all modules and generate complete API reference
 - Cross-linking: Automatic :func:, :class: references between components
 
@@ -76,7 +76,7 @@ Implementation:
 
 Validation:
 - test_generates_complete_api_docs()
-- test_cross_references_work() 
+- test_cross_references_work()
 - test_type_annotations_documented()
 
 Phase 2: Documentation Coverage Enforcement
@@ -132,7 +132,7 @@ Validation:
 Phase 4: CLI Reference Completion
 =================================
 
-Priority: MEDIUM  
+Priority: MEDIUM
 Estimated: 1 hour
 
 Components:
@@ -200,7 +200,7 @@ Quality Guarantees
 ==================
 
 - Type system enforces schema correctness
-- Doctests validate example accuracy  
+- Doctests validate example accuracy
 - Pre-commit hooks prevent inconsistency
 - Sphinx validates cross-references
 - Tests verify generated docs completeness
@@ -208,7 +208,7 @@ Quality Guarantees
 Phase 6: Agent-Supreme Task Management System
 ==============================================
 
-Priority: HIGH 
+Priority: HIGH
 Estimated: 4-5 hours (~600 lines)
 
 Alternative to Jira integration - Build AI-optimized task management directly in Om.
@@ -276,7 +276,7 @@ If external project management becomes necessary for client projects or portfoli
 this can be implemented as a bridge between Om task system and Jira.
 
 Components:
-- Jira API client for ticket creation and updates  
+- Jira API client for ticket creation and updates
 - Sync layer between Om tasks and Jira tickets
 - Client-friendly progress reporting
 - Portfolio dashboard for multiple projects
@@ -346,7 +346,7 @@ Implementation:
 
     Enhanced FunctionDoc dataclass:                               # ~50 lines
         full_docstring: str           # Complete documentation
-        structured_summary: dict      # Semantic breakdown  
+        structured_summary: dict      # Semantic breakdown
         dense_index: str             # Search optimization
         ai_prompt_format: str        # Agent consumption
         quality_score: float         # Compression validation

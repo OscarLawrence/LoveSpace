@@ -13,13 +13,13 @@ from .protocol_engine import ProtocolEngine
 OptimizerProtocol = ProtocolEngine
 
 __all__ = [
-    'OptimizerProtocol',
-    'ProtocolEngine', 
-    'MessageManager',
-    'AgentManager',
-    'CommunicationHandlers',
-    'MessageType',
-    'Priority', 
-    'OptimizerMessage',
-    'AgentInfo'
+    "OptimizerProtocol",
+    "ProtocolEngine",
+    "MessageManager",
+    "AgentManager",
+    "CommunicationHandlers",
+    "MessageType",
+    "Priority",
+    "OptimizerMessage",
+    "AgentInfo",
 ]

@@ -3,16 +3,16 @@ Data models for context injection benchmarks
 """
 
 from dataclasses import dataclass
-from typing import List
 
 
 @dataclass
 class BenchmarkQuery:
     """Test query with expected results for validation."""
+
     query: str
-    expected_functions: List[str]  # Function names that should appear
-    expected_patterns: List[str]   # Pattern types that should appear
-    expected_docs_keywords: List[str]  # Keywords that should appear in docs
+    expected_functions: list[str]  # Function names that should appear
+    expected_patterns: list[str]  # Pattern types that should appear
+    expected_docs_keywords: list[str]  # Keywords that should appear in docs
     min_similarity_threshold: float = 0.3  # Minimum similarity score
     description: str = ""
 
@@ -20,13 +20,14 @@ class BenchmarkQuery:
 @dataclass
 class BenchmarkResult:
     """Results from a benchmark test."""
+
     query: str
-    functions_found: List[str]
-    patterns_found: List[str]
-    docs_found: List[str]
-    similarity_scores: List[float]
+    functions_found: list[str]
+    patterns_found: list[str]
+    docs_found: list[str]
+    similarity_scores: list[float]
     precision: float  # How many found results were relevant
-    recall: float     # How many relevant results were found
+    recall: float  # How many relevant results were found
     avg_similarity: float
     passed: bool
-    errors: List[str]
+    errors: list[str]

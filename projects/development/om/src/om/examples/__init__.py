@@ -10,10 +10,10 @@ from .use_cases_generator import UseCasesGenerator
 from .workflow_generator import WorkflowGenerator
 
 __all__ = [
-    'IntegrationExample',
-    'ExampleGenerator',
-    'WorkflowGenerator',
-    'PatternsGenerator',
-    'UseCasesGenerator',
-    'MarkdownGenerator'
+    "IntegrationExample",
+    "ExampleGenerator",
+    "WorkflowGenerator",
+    "PatternsGenerator",
+    "UseCasesGenerator",
+    "MarkdownGenerator",
 ]

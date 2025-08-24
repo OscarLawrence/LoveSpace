@@ -6,6 +6,4 @@ from ..prerequisite_checker import PrerequisiteChecker
 from ..token_efficiency_optimizer import TokenEfficiencyOptimizer
 from ..validation_models import ValidationResult
 
-__all__ = [
-    'OMIntegration'
-]
+__all__ = ["OMIntegration"]

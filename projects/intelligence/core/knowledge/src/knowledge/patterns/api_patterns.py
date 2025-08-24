@@ -1,11 +1,9 @@
 """API and web service patterns."""
 
-from typing import List
-
 from ..db_manager import Pattern
 
 
-def get_api_patterns() -> List[Pattern]:
+def get_api_patterns() -> list[Pattern]:
     """Get API-related patterns."""
     return [
         Pattern(
@@ -39,7 +37,7 @@ def get_user(user_id: int, db: Session = Depends(get_db)):
 """,
             usage_context="FastAPI CRUD endpoint patterns",
             dependencies=["fastapi", "sqlalchemy"],
-            success_count=35
+            success_count=35,
         ),
         Pattern(
             name="api_middleware_pattern",
@@ -66,7 +64,7 @@ async def log_requests(request: Request, call_next):
 """,
             usage_context="FastAPI middleware for cross-cutting concerns",
             dependencies=["fastapi"],
-            success_count=28
+            success_count=28,
         ),
         Pattern(
             name="jwt_authentication",
@@ -95,7 +93,7 @@ def protected_route(current_user: str = Depends(verify_token)):
 """,
             usage_context="JWT authentication for API endpoints",
             dependencies=["fastapi", "python-jose"],
-            success_count=32
+            success_count=32,
         ),
         Pattern(
             name="api_error_handling",
@@ -135,7 +133,7 @@ async def internal_error_handler(request: Request, exc: Exception):
 """,
             usage_context="Comprehensive API error handling",
             dependencies=["fastapi"],
-            success_count=30
+            success_count=30,
         ),
         Pattern(
             name="rate_limiting",
@@ -172,6 +170,6 @@ def rate_limit_dependency(request: Request):
 """,
             usage_context="Rate limiting for API protection",
             dependencies=["fastapi"],
-            success_count=26
-        )
+            success_count=26,
+        ),
     ]

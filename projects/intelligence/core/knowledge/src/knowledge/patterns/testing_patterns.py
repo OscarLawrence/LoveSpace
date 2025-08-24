@@ -1,11 +1,9 @@
 """Testing patterns and fixtures."""
 
-from typing import List
-
 from ..db_manager import Pattern
 
 
-def get_testing_patterns() -> List[Pattern]:
+def get_testing_patterns() -> list[Pattern]:
     """Get testing-related patterns."""
     return [
         Pattern(
@@ -25,7 +23,7 @@ def test_user_creation(user_factory):
 """,
             usage_context="Factory fixtures for test data creation",
             dependencies=["pytest"],
-            success_count=30
+            success_count=30,
         ),
         Pattern(
             name="mock_service_pattern",
@@ -51,7 +49,7 @@ def test_api_integration(mock_service):
 """,
             usage_context="Mock services for isolated testing",
             dependencies=["unittest.mock"],
-            success_count=25
+            success_count=25,
         ),
         Pattern(
             name="test_builder_pattern",
@@ -86,7 +84,7 @@ user = UserBuilder().with_name("John").with_age(30).build()
 """,
             usage_context="Builder pattern for test object creation",
             dependencies=[],
-            success_count=22
+            success_count=22,
         ),
         Pattern(
             name="parametrized_tests",
@@ -113,7 +111,7 @@ def test_user_validation(user_data):
 """,
             usage_context="Parametrized testing for multiple test cases",
             dependencies=["pytest"],
-            success_count=28
+            success_count=28,
         ),
         Pattern(
             name="database_test_fixtures",
@@ -139,7 +137,7 @@ def db_session(test_database):
 """,
             usage_context="Database fixtures with proper cleanup",
             dependencies=["pytest"],
-            success_count=26
+            success_count=26,
         ),
         Pattern(
             name="api_test_client",
@@ -166,6 +164,6 @@ def api_client():
 """,
             usage_context="HTTP API testing client",
             dependencies=["requests", "pytest"],
-            success_count=24
-        )
+            success_count=24,
+        ),
     ]

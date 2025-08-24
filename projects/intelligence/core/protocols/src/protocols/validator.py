@@ -56,7 +56,9 @@ class ProtocolValidator:
             errors.append(ValidationError("timeout", "Timeout must be positive"))
 
         if task.max_retries < 0:
-            errors.append(ValidationError("max_retries", "Max retries cannot be negative"))
+            errors.append(
+                ValidationError("max_retries", "Max retries cannot be negative")
+            )
 
         return errors
 
@@ -81,20 +83,28 @@ class ProtocolValidator:
             errors.append(ValidationError("spec.name", "Code name is required"))
 
         if not spec.language:
-            errors.append(ValidationError("spec.language", "Programming language is required"))
+            errors.append(
+                ValidationError("spec.language", "Programming language is required")
+            )
 
         # Validate parameter names are unique
         param_names = [p.name for p in spec.params]
         if len(param_names) != len(set(param_names)):
-            errors.append(ValidationError("spec.params", "Parameter names must be unique"))
+            errors.append(
+                ValidationError("spec.params", "Parameter names must be unique")
+            )
 
         # Validate parameter types
         for param in spec.params:
             if not param.name:
-                errors.append(ValidationError("spec.params", "Parameter name is required"))
+                errors.append(
+                    ValidationError("spec.params", "Parameter name is required")
+                )
             if not param.type:
                 errors.append(
-                    ValidationError("spec.params", f"Parameter type is required for '{param.name}'")
+                    ValidationError(
+                        "spec.params", f"Parameter type is required for '{param.name}'"
+                    )
                 )
 
         # Language-specific validation
@@ -116,7 +126,8 @@ class ProtocolValidator:
         if spec.operation not in valid_operations:
             errors.append(
                 ValidationError(
-                    "spec.operation", f"Invalid operation. Must be one of: {valid_operations}"
+                    "spec.operation",
+                    f"Invalid operation. Must be one of: {valid_operations}",
                 )
             )
 
@@ -124,14 +135,16 @@ class ProtocolValidator:
         if spec.operation in ["write", "create"] and spec.content is None:
             errors.append(
                 ValidationError(
-                    "spec.content", f"Content is required for {spec.operation} operations"
+                    "spec.content",
+                    f"Content is required for {spec.operation} operations",
                 )
             )
 
         if spec.operation in ["move", "copy"] and not spec.target_path:
             errors.append(
                 ValidationError(
-                    "spec.target_path", f"Target path is required for {spec.operation} operations"
+                    "spec.target_path",
+                    f"Target path is required for {spec.operation} operations",
                 )
             )
 
@@ -148,13 +161,16 @@ class ProtocolValidator:
         if spec.query_type not in valid_query_types:
             errors.append(
                 ValidationError(
-                    "spec.query_type", f"Invalid query type. Must be one of: {valid_query_types}"
+                    "spec.query_type",
+                    f"Invalid query type. Must be one of: {valid_query_types}",
                 )
             )
 
         # Query-specific validation
         if spec.query_type == "select" and not spec.fields:
-            errors.append(ValidationError("spec.fields", "Fields are required for SELECT queries"))
+            errors.append(
+                ValidationError("spec.fields", "Fields are required for SELECT queries")
+            )
 
         if spec.query_type in ["update", "delete"] and not spec.conditions:
             errors.append(
@@ -187,14 +203,26 @@ class ProtocolValidator:
         errors = []
 
         # Task type vs spec type consistency
-        if task.task_type == TaskType.CODE_GENERATION and not isinstance(task.spec, CodeSpec):
-            errors.append(ValidationError("task_type", "CODE_GENERATION tasks require CodeSpec"))
+        if task.task_type == TaskType.CODE_GENERATION and not isinstance(
+            task.spec, CodeSpec
+        ):
+            errors.append(
+                ValidationError("task_type", "CODE_GENERATION tasks require CodeSpec")
+            )
 
-        if task.task_type == TaskType.FILE_OPERATION and not isinstance(task.spec, FileSpec):
-            errors.append(ValidationError("task_type", "FILE_OPERATION tasks require FileSpec"))
+        if task.task_type == TaskType.FILE_OPERATION and not isinstance(
+            task.spec, FileSpec
+        ):
+            errors.append(
+                ValidationError("task_type", "FILE_OPERATION tasks require FileSpec")
+            )
 
-        if task.task_type == TaskType.DATABASE_QUERY and not isinstance(task.spec, QuerySpec):
-            errors.append(ValidationError("task_type", "DATABASE_QUERY tasks require QuerySpec"))
+        if task.task_type == TaskType.DATABASE_QUERY and not isinstance(
+            task.spec, QuerySpec
+        ):
+            errors.append(
+                ValidationError("task_type", "DATABASE_QUERY tasks require QuerySpec")
+            )
 
         return errors
 
@@ -205,17 +233,31 @@ class ProtocolValidator:
         # Python naming conventions
         if not spec.name.islower() and "_" not in spec.name:
             errors.append(
-                ValidationError("spec.name", "Python functions should use snake_case", "warning")
+                ValidationError(
+                    "spec.name", "Python functions should use snake_case", "warning"
+                )
             )
 
         # Python type hints
-        python_types = ["str", "int", "float", "bool", "list", "dict", "Any", "Optional", "Union"]
+        python_types = [
+            "str",
+            "int",
+            "float",
+            "bool",
+            "list",
+            "dict",
+            "Any",
+            "Optional",
+            "Union",
+        ]
         for param in spec.params:
             if param.type not in python_types and not param.type.startswith(
                 ("List[", "Dict[", "Optional[")
             ):
                 errors.append(
-                    ValidationError("spec.params", f"Unknown Python type: {param.type}", "warning")
+                    ValidationError(
+                        "spec.params", f"Unknown Python type: {param.type}", "warning"
+                    )
                 )
 
         return errors
@@ -227,12 +269,16 @@ class ProtocolValidator:
         # JavaScript naming conventions
         if spec.type == "function" and not spec.name[0].islower():
             errors.append(
-                ValidationError("spec.name", "JavaScript functions should use camelCase", "warning")
+                ValidationError(
+                    "spec.name", "JavaScript functions should use camelCase", "warning"
+                )
             )
 
         if spec.type == "component" and not spec.name[0].isupper():
             errors.append(
-                ValidationError("spec.name", "React components should use PascalCase", "warning")
+                ValidationError(
+                    "spec.name", "React components should use PascalCase", "warning"
+                )
             )
 
         return errors

@@ -3,24 +3,23 @@ Integration patterns generator
 """
 
 import textwrap
-from typing import List
 
 from .data_models import IntegrationExample
 
 
 class PatternsGenerator:
     """Generates common integration patterns"""
-    
-    def generate_examples(self) -> List[IntegrationExample]:
+
+    def generate_examples(self) -> list[IntegrationExample]:
         """Generate common integration patterns."""
         examples = []
-        
+
         examples.append(self._create_cli_integration())
         examples.append(self._create_api_integration())
         examples.append(self._create_ci_integration())
-        
+
         return examples
-    
+
     def _create_cli_integration(self) -> IntegrationExample:
         """Create CLI integration pattern example"""
         return IntegrationExample(
@@ -106,11 +105,15 @@ class PatternsGenerator:
                 Enables embedding Om's documentation capabilities in larger tools.
             """).strip(),
             prerequisites=["Click library", "Om CLI installed"],
-            related_commands=["docs generate", "docs coverage gate", "docs schema validate"],
+            related_commands=[
+                "docs generate",
+                "docs coverage gate",
+                "docs schema validate",
+            ],
             expected_output="Custom CLI with integrated Om documentation features",
-            tags=["integration", "cli", "subprocess", "custom_tools"]
+            tags=["integration", "cli", "subprocess", "custom_tools"],
         )
-    
+
     def _create_api_integration(self) -> IntegrationExample:
         """Create API integration pattern example"""
         return IntegrationExample(
@@ -209,9 +212,9 @@ class PatternsGenerator:
             prerequisites=["Om Python modules", "Python application framework"],
             related_commands=["docs coverage", "docs generate", "docs schema"],
             expected_output="Integrated documentation service with programmatic control",
-            tags=["api", "programmatic", "service", "integration"]
+            tags=["api", "programmatic", "service", "integration"],
         )
-    
+
     def _create_ci_integration(self) -> IntegrationExample:
         """Create CI/CD integration pattern example"""
         return IntegrationExample(
@@ -259,7 +262,7 @@ class PatternsGenerator:
                     - name: Generate and validate schemas
                       run: |
                         om docs schema batch src --output-dir schemas --format json
-                        find schemas -name \"*.json\" -exec om docs schema validate {} \;
+                        find schemas -name \"*.json\" -exec om docs schema validate {} \\;
                     
                     - name: Upload documentation artifacts
                       uses: actions/upload-artifact@v3
@@ -288,7 +291,11 @@ class PatternsGenerator:
                 Ensures documentation quality is maintained across development.
             """).strip(),
             prerequisites=["GitHub Actions", "Om CLI in CI environment"],
-            related_commands=["docs generate", "docs coverage gate", "docs schema batch"],
+            related_commands=[
+                "docs generate",
+                "docs coverage gate",
+                "docs schema batch",
+            ],
             expected_output="Automated documentation quality enforcement in CI/CD",
-            tags=["ci_cd", "github_actions", "automation", "quality_gates"]
+            tags=["ci_cd", "github_actions", "automation", "quality_gates"],
         )

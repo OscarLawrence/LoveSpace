@@ -1,22 +1,20 @@
 """API reference and integration documentation."""
 
-from typing import Any, Dict
-
-from ..license import PlanTier, SubscriptionManager
+from ..license import PlanTier
 
 
 class APIDocumentationGenerator:
     """Generates API reference documentation."""
-    
+
     def __init__(self, subscription_manager):
         self.subscription_manager = subscription_manager
-        
+
     def generate_api_reference(self) -> str:
         """Generate API reference documentation."""
         subscription = self.subscription_manager.load_subscription()
         tier = PlanTier(subscription["tier"])
         config = self.subscription_manager.get_plan_config(tier)
-        
+
         content = """# OM Commercial API Reference
 
 ## Core Commands
@@ -36,7 +34,7 @@ class APIDocumentationGenerator:
 - `om code format` - Format code
 - `om code lint` - Lint codebase
 """
-        
+
         if config["features"].advanced_analysis:
             content += """
 ### Advanced Analysis (Pro/Enterprise)
@@ -45,7 +43,7 @@ class APIDocumentationGenerator:
 - `om code dependencies` - Dependency analysis
 - `om code security` - Security vulnerability scan
 """
-        
+
         if config["features"].team_collaboration:
             content += """
 ### Team Collaboration (Pro/Enterprise)
@@ -54,7 +52,7 @@ class APIDocumentationGenerator:
 - `om session join <id>` - Join collaboration session
 - `om team list` - List team members
 """
-        
+
         if config["features"].api_access:
             content += """
 ### API Access (Pro/Enterprise)
@@ -67,7 +65,7 @@ class APIDocumentationGenerator:
 - `POST /api/v1/analyze` - Submit analysis job
 - `GET /api/v1/results/{id}` - Get analysis results
 """
-        
+
         content += """
 ### Usage & Billing
 - `om usage stats` - Show usage statistics
@@ -80,15 +78,15 @@ class APIDocumentationGenerator:
 - `--verbose` - Enable verbose output
 - `--help` - Show command help
 """
-        
+
         return content
-    
+
     def generate_integration_guide(self) -> str:
         """Generate integration guide."""
         subscription = self.subscription_manager.load_subscription()
         tier = PlanTier(subscription["tier"])
         config = self.subscription_manager.get_plan_config(tier)
-        
+
         content = """# OM Commercial Integration Guide
 
 ## CI/CD Integration
@@ -122,7 +120,7 @@ jobs:
 2. Configure API key in plugin settings
 3. Use OM tools from Tools menu
 """
-        
+
         if config["features"].api_access:
             content += """
 ## API Integration
@@ -143,7 +141,7 @@ curl -H "Authorization: Bearer YOUR-API-KEY" \\
      -d '{"workspace_path": "/path/to/project"}'
 ```
 """
-        
+
         if config["features"].custom_integrations:
             content += """
 ## Custom Integrations (Enterprise)
@@ -167,7 +165,7 @@ class CustomAnalyzer(BasePlugin):
         return results
 ```
 """
-        
+
         content += """
 ## Best Practices
 
@@ -188,5 +186,5 @@ class CustomAnalyzer(BasePlugin):
 - Run with `--verbose` for detailed output
 - Contact support with error details
 """
-        
+
         return content

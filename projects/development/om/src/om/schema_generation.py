@@ -9,4 +9,9 @@ from .schema.documentation_generator import TypeDocumentationGenerator
 from .schema.generator import SchemaGenerator
 from .schema.type_analyzer import TypeAnalyzer
 
-__all__ = ['TypeSchema', 'TypeAnalyzer', 'SchemaGenerator', 'TypeDocumentationGenerator']
+__all__ = [
+    "TypeSchema",
+    "TypeAnalyzer",
+    "SchemaGenerator",
+    "TypeDocumentationGenerator",
+]

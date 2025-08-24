@@ -1,17 +1,15 @@
 """Code pattern library for knowledge base population."""
 
-from typing import Dict, List
-
 from .db_manager import ContextDB, Pattern
 
 
 class PatternLibrary:
     """Library of common code patterns for AI development."""
-    
+
     def __init__(self):
         self.patterns = self._define_patterns()
-    
-    def _define_patterns(self) -> List[Dict]:
+
+    def _define_patterns(self) -> list[dict]:
         """Define comprehensive code patterns."""
         return [
             # CLI Patterns
@@ -26,7 +24,7 @@ def process(input_file, output):
     pass""",
                 "usage_context": "Basic Click command with argument and option",
                 "dependencies": ["click"],
-                "success_count": 10
+                "success_count": 10,
             },
             {
                 "name": "click_group_commands",
@@ -42,9 +40,8 @@ def subcommand():
     pass""",
                 "usage_context": "Click command groups for complex CLI tools",
                 "dependencies": ["click"],
-                "success_count": 8
+                "success_count": 8,
             },
-            
             # AST/Code Parsing Patterns
             {
                 "name": "ast_function_visitor",
@@ -62,7 +59,7 @@ def subcommand():
         self.generic_visit(node)""",
                 "usage_context": "Extract function definitions from Python AST",
                 "dependencies": ["ast"],
-                "success_count": 15
+                "success_count": 15,
             },
             {
                 "name": "ast_class_extractor",
@@ -80,9 +77,8 @@ def subcommand():
     return classes""",
                 "usage_context": "Extract class definitions and methods from code",
                 "dependencies": ["ast"],
-                "success_count": 12
+                "success_count": 12,
             },
-            
             # Database/Storage Patterns
             {
                 "name": "duckdb_connection_manager",
@@ -101,7 +97,7 @@ def subcommand():
             self.conn.close()""",
                 "usage_context": "Context manager for DuckDB connections",
                 "dependencies": ["duckdb"],
-                "success_count": 9
+                "success_count": 9,
             },
             {
                 "name": "batch_insert_pattern",
@@ -114,9 +110,8 @@ def subcommand():
         conn.executemany(sql, batch)""",
                 "usage_context": "Efficient batch insertion for large datasets",
                 "dependencies": ["duckdb"],
-                "success_count": 7
+                "success_count": 7,
             },
-            
             # Error Handling Patterns
             {
                 "name": "retry_with_backoff",
@@ -135,7 +130,7 @@ def retry_with_backoff(func, max_retries=3, base_delay=1):
             time.sleep(delay)""",
                 "usage_context": "Retry failed operations with exponential backoff",
                 "dependencies": ["time", "random"],
-                "success_count": 11
+                "success_count": 11,
             },
             {
                 "name": "context_error_handler",
@@ -154,9 +149,8 @@ def handle_errors(operation_name):
         print(f"Unexpected error in {operation_name}: {e}")""",
                 "usage_context": "Context manager for consistent error handling",
                 "dependencies": ["contextlib"],
-                "success_count": 6
+                "success_count": 6,
             },
-            
             # Async Patterns
             {
                 "name": "async_batch_processor",
@@ -176,9 +170,8 @@ async def process_batch(items, batch_size=10):
     return await asyncio.gather(*tasks)""",
                 "usage_context": "Process items concurrently with rate limiting",
                 "dependencies": ["asyncio"],
-                "success_count": 8
+                "success_count": 8,
             },
-            
             # Validation Patterns
             {
                 "name": "pydantic_model_validation",
@@ -203,9 +196,8 @@ class DataModel(BaseModel):
         return v""",
                 "usage_context": "Data validation with Pydantic models",
                 "dependencies": ["pydantic"],
-                "success_count": 13
+                "success_count": 13,
             },
-            
             # File Processing Patterns
             {
                 "name": "safe_file_processor",
@@ -229,9 +221,8 @@ def process_files_safely(directory, pattern="*.py"):
     return results""",
                 "usage_context": "Safely process multiple files with error handling",
                 "dependencies": ["pathlib"],
-                "success_count": 9
+                "success_count": 9,
             },
-            
             # Caching Patterns
             {
                 "name": "simple_lru_cache",
@@ -248,9 +239,8 @@ def expensive_computation(param):
 # expensive_computation.cache_clear()""",
                 "usage_context": "Simple LRU caching for expensive functions",
                 "dependencies": ["functools"],
-                "success_count": 10
+                "success_count": 10,
             },
-            
             # Testing Patterns
             {
                 "name": "pytest_fixture_pattern",
@@ -272,9 +262,8 @@ def test_with_fixtures(sample_data, temp_file):
     assert temp_file.read_text() == "test content" """,
                 "usage_context": "Pytest fixtures for test data and temporary files",
                 "dependencies": ["pytest"],
-                "success_count": 12
+                "success_count": 12,
             },
-            
             # Configuration Patterns
             {
                 "name": "environment_config",
@@ -297,14 +286,14 @@ class Config:
         )""",
                 "usage_context": "Environment-based configuration with defaults",
                 "dependencies": ["os", "dataclasses"],
-                "success_count": 8
-            }
+                "success_count": 8,
+            },
         ]
-    
+
     def populate_knowledge_base(self, db: ContextDB) -> int:
         """Populate knowledge base with code patterns."""
         patterns_added = 0
-        
+
         for pattern_data in self.patterns:
             try:
                 pattern = Pattern(
@@ -314,22 +303,22 @@ class Config:
                     code_snippet=pattern_data["code_snippet"],
                     usage_context=pattern_data["usage_context"],
                     dependencies=pattern_data["dependencies"],
-                    success_count=pattern_data["success_count"]
+                    success_count=pattern_data["success_count"],
                 )
-                
+
                 pattern_id = db.add_pattern(pattern)
                 if pattern_id:
                     patterns_added += 1
-                    
+
             except Exception as e:
                 print(f"Error adding pattern {pattern_data['name']}: {e}")
-        
+
         return patterns_added
-    
-    def get_patterns_by_type(self, pattern_type: str) -> List[Dict]:
+
+    def get_patterns_by_type(self, pattern_type: str) -> list[dict]:
         """Get patterns filtered by type."""
         return [p for p in self.patterns if p["pattern_type"] == pattern_type]
-    
-    def get_pattern_types(self) -> List[str]:
+
+    def get_pattern_types(self) -> list[str]:
         """Get all available pattern types."""
         return list(set(p["pattern_type"] for p in self.patterns))

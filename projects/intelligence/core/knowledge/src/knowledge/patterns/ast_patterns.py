@@ -1,11 +1,9 @@
 """AST and code analysis patterns."""
 
-from typing import List
-
 from ..db_manager import Pattern
 
 
-def get_ast_patterns() -> List[Pattern]:
+def get_ast_patterns() -> list[Pattern]:
     """Get AST-related patterns."""
     return [
         Pattern(
@@ -27,7 +25,7 @@ class FunctionVisitor(ast.NodeVisitor):
 """,
             usage_context="AST traversal for code analysis and extraction",
             dependencies=["ast"],
-            success_count=35
+            success_count=35,
         ),
         Pattern(
             name="ast_transformer_pattern",
@@ -43,7 +41,7 @@ class CodeTransformer(ast.NodeTransformer):
 """,
             usage_context="AST transformation for code modification",
             dependencies=["ast"],
-            success_count=20
+            success_count=20,
         ),
         Pattern(
             name="syntax_error_recovery",
@@ -67,7 +65,7 @@ def safe_parse(source_code, filename='<string>'):
 """,
             usage_context="Robust parsing with error recovery",
             dependencies=["ast"],
-            success_count=28
+            success_count=28,
         ),
         Pattern(
             name="docstring_extraction",
@@ -85,7 +83,7 @@ def extract_docstrings(tree):
 """,
             usage_context="Documentation extraction from source code",
             dependencies=["ast"],
-            success_count=25
+            success_count=25,
         ),
         Pattern(
             name="import_analysis",
@@ -105,7 +103,7 @@ def analyze_imports(tree):
 """,
             usage_context="Import dependency analysis",
             dependencies=["ast"],
-            success_count=22
+            success_count=22,
         ),
         Pattern(
             name="complexity_analysis",
@@ -130,7 +128,7 @@ class ComplexityVisitor(ast.NodeVisitor):
 """,
             usage_context="Cyclomatic complexity calculation",
             dependencies=["ast"],
-            success_count=18
+            success_count=18,
         ),
         Pattern(
             name="variable_scope_analysis",
@@ -153,7 +151,7 @@ def analyze_variable_scope(tree):
 """,
             usage_context="Variable scope and binding analysis",
             dependencies=["ast"],
-            success_count=15
+            success_count=15,
         ),
         Pattern(
             name="code_generation",
@@ -177,7 +175,7 @@ def generate_function_ast(name, args, body_statements):
 """,
             usage_context="Programmatic AST generation",
             dependencies=["ast"],
-            success_count=12
+            success_count=12,
         ),
         Pattern(
             name="source_code_formatting",
@@ -195,7 +193,7 @@ def apply_black_formatting(source_code):
 """,
             usage_context="Code formatting and AST-to-source conversion",
             dependencies=["astor", "black"],
-            success_count=16
+            success_count=16,
         ),
         Pattern(
             name="dependency_graph_builder",
@@ -221,6 +219,6 @@ def build_dependency_graph(modules):
 """,
             usage_context="Module dependency graph construction",
             dependencies=["ast"],
-            success_count=24
-        )
+            success_count=24,
+        ),
     ]

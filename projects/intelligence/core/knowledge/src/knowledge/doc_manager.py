@@ -70,7 +70,9 @@ class DocManager:
             params.append(doc_type)
 
         where_clause = " AND ".join(conditions) if conditions else "1=1"
-        query = f"SELECT * FROM documentation WHERE {where_clause} ORDER BY updated_at DESC"
+        query = (
+            f"SELECT * FROM documentation WHERE {where_clause} ORDER BY updated_at DESC"
+        )
 
         results = self.db.conn.execute(query, params).fetchall()
 

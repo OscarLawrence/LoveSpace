@@ -10,11 +10,11 @@ from .runner import BenchmarkRunner
 from .suite import ContextInjectionBenchmark
 
 __all__ = [
-    'BenchmarkQuery',
-    'BenchmarkResult',
-    'load_benchmark_queries',
-    'BenchmarkRunner',
-    'BenchmarkEvaluator',
-    'BenchmarkReporter',
-    'ContextInjectionBenchmark'
+    "BenchmarkQuery",
+    "BenchmarkResult",
+    "load_benchmark_queries",
+    "BenchmarkRunner",
+    "BenchmarkEvaluator",
+    "BenchmarkReporter",
+    "ContextInjectionBenchmark",
 ]

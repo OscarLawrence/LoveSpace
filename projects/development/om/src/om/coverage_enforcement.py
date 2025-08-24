@@ -9,4 +9,10 @@ from .coverage.data_models import CoverageMetrics, QualityIssue
 from .coverage.quality_gate import QualityGate
 from .coverage.reporter import CoverageReporter
 
-__all__ = ['CoverageMetrics', 'QualityIssue', 'CoverageAnalyzer', 'QualityGate', 'CoverageReporter']
+__all__ = [
+    "CoverageMetrics",
+    "QualityIssue",
+    "CoverageAnalyzer",
+    "QualityGate",
+    "CoverageReporter",
+]

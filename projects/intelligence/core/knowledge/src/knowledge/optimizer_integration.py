@@ -9,4 +9,4 @@ from .optimizer import (
     PerformancePattern,
 )
 
-__all__ = ['MemoryIntegratedOptimizer', 'PerformancePattern', 'OptimizationSession']
+__all__ = ["MemoryIntegratedOptimizer", "PerformancePattern", "OptimizationSession"]

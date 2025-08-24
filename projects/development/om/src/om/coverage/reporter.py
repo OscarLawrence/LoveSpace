@@ -4,14 +4,13 @@ Coverage reporting in various formats
 
 import json
 from pathlib import Path
-from typing import List
 
 from .data_models import CoverageMetrics
 
 
 class CoverageReporter:
     """Generates coverage reports in various formats."""
-    
+
     def generate_text_report(self, metrics: CoverageMetrics) -> str:
         """Generate human-readable text report."""
         lines = [
@@ -21,31 +20,25 @@ class CoverageReporter:
             f"Documented: {metrics.documented_elements}",
             f"Coverage: {metrics.coverage_percentage:.1f}%",
             f"Quality Score: {metrics.quality_score}/10",
-            ""
+            "",
         ]
-        
+
         if metrics.missing_docs:
-            lines.extend([
-                "Missing Documentation:",
-                "-" * 25
-            ])
+            lines.extend(["Missing Documentation:", "-" * 25])
             for missing in metrics.missing_docs[:10]:  # Limit to first 10
                 lines.append(f"  {missing}")
-            
+
             if len(metrics.missing_docs) > 10:
                 lines.append(f"  ... and {len(metrics.missing_docs) - 10} more")
             lines.append("")
-        
+
         if metrics.issues:
-            lines.extend([
-                "Quality Issues:",
-                "-" * 15
-            ])
-            
+            lines.extend(["Quality Issues:", "-" * 15])
+
             # Group issues by severity
-            errors = [i for i in metrics.issues if i['severity'] == 'error']
-            warnings = [i for i in metrics.issues if i['severity'] == 'warning']
-            
+            errors = [i for i in metrics.issues if i["severity"] == "error"]
+            warnings = [i for i in metrics.issues if i["severity"] == "warning"]
+
             if errors:
                 lines.append(f"Errors ({len(errors)}):")
                 for issue in errors[:5]:  # Limit to first 5
@@ -53,7 +46,7 @@ class CoverageReporter:
                 if len(errors) > 5:
                     lines.append(f"  ... and {len(errors) - 5} more errors")
                 lines.append("")
-            
+
             if warnings:
                 lines.append(f"Warnings ({len(warnings)}):")
                 for issue in warnings[:5]:  # Limit to first 5
@@ -61,14 +54,15 @@ class CoverageReporter:
                 if len(warnings) > 5:
                     lines.append(f"  ... and {len(warnings) - 5} more warnings")
                 lines.append("")
-        
+
         return "\n".join(lines)
-    
+
     def generate_json_report(self, metrics: CoverageMetrics) -> str:
         """Generate JSON report."""
         from dataclasses import asdict
+
         return json.dumps(asdict(metrics), indent=2)
-    
+
     def generate_html_report(self, metrics: CoverageMetrics) -> str:
         """Generate HTML report."""
         html = f"""
@@ -92,11 +86,11 @@ class CoverageReporter:
                 <h2>Coverage Metrics</h2>
                 <p>Total Elements: {metrics.total_elements}</p>
                 <p>Documented Elements: {metrics.documented_elements}</p>
-                <p>Coverage: <span class="{'good' if metrics.coverage_percentage >= 80 else 'warning'}">{metrics.coverage_percentage:.1f}%</span></p>
-                <p>Quality Score: <span class="{'good' if metrics.quality_score >= 7 else 'warning'}">{metrics.quality_score}/10</span></p>
+                <p>Coverage: <span class="{"good" if metrics.coverage_percentage >= 80 else "warning"}">{metrics.coverage_percentage:.1f}%</span></p>
+                <p>Quality Score: <span class="{"good" if metrics.quality_score >= 7 else "warning"}">{metrics.quality_score}/10</span></p>
             </div>
         """
-        
+
         if metrics.missing_docs:
             html += """
             <div class="issues">
@@ -106,7 +100,7 @@ class CoverageReporter:
             for missing in metrics.missing_docs[:20]:  # Limit for HTML
                 html += f"<li>{missing}</li>"
             html += "</ul></div>"
-        
+
         if metrics.issues:
             html += """
             <div class="issues">
@@ -114,18 +108,20 @@ class CoverageReporter:
                 <ul>
             """
             for issue in metrics.issues[:20]:  # Limit for HTML
-                severity_class = issue['severity']
+                severity_class = issue["severity"]
                 html += f'<li class="{severity_class}">{issue["element_name"]}: {issue["description"]}</li>'
             html += "</ul></div>"
-        
+
         html += """
         </body>
         </html>
         """
-        
+
         return html
-    
-    def save_report(self, metrics: CoverageMetrics, output_path: Path, format_type: str = "text"):
+
+    def save_report(
+        self, metrics: CoverageMetrics, output_path: Path, format_type: str = "text"
+    ):
         """Save report to file."""
         if format_type == "json":
             content = self.generate_json_report(metrics)
@@ -133,6 +129,6 @@ class CoverageReporter:
             content = self.generate_html_report(metrics)
         else:
             content = self.generate_text_report(metrics)
-        
-        with open(output_path, 'w') as f:
+
+        with open(output_path, "w") as f:
             f.write(content)

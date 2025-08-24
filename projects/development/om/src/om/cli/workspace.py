@@ -19,7 +19,7 @@ def status():
         with open("pyproject.toml", "rb") as f:
             config = tomllib.load(f)
         members = config["tool"]["uv"]["workspace"]["members"]
-        
+
         statuses = []
         for member in members:
             path = Path(member)
@@ -27,7 +27,7 @@ def status():
                 statuses.append(f"{path.name}:✓")
             else:
                 statuses.append(f"{path.name}:✗")
-        
+
         click.echo(" ".join(statuses))
     except Exception as e:
         click.echo(f"workspace:error:{e}")
@@ -40,7 +40,7 @@ def list_modules():
         with open("pyproject.toml", "rb") as f:
             config = tomllib.load(f)
         members = config["tool"]["uv"]["workspace"]["members"]
-        
+
         modules = []
         for member in members:
             path = Path(member)
@@ -50,7 +50,7 @@ def list_modules():
                 name = mod_config["project"]["name"]
                 desc = mod_config["project"].get("description", "")
                 modules.append(f"{name}:{desc}")
-        
+
         click.echo("\n".join(modules))
     except Exception as e:
         click.echo(f"modules:error:{e}")

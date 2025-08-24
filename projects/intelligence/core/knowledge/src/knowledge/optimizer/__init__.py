@@ -13,13 +13,13 @@ from .recommendation_engine import RecommendationEngine
 from .session_manager import SessionManager
 
 __all__ = [
-    'AIOptimizer',
-    'PerformancePattern',
-    'OptimizationSession',
-    'PatternStorage',
-    'SessionManager', 
-    'RecommendationEngine',
-    'MemoryConsolidation',
-    'PerformanceAnalyzer',
-    'MemoryIntegratedOptimizer'
+    "AIOptimizer",
+    "PerformancePattern",
+    "OptimizationSession",
+    "PatternStorage",
+    "SessionManager",
+    "RecommendationEngine",
+    "MemoryConsolidation",
+    "PerformanceAnalyzer",
+    "MemoryIntegratedOptimizer",
 ]

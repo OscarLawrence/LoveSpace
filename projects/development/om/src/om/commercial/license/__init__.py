@@ -16,7 +16,7 @@ from .validator import LicenseValidationError, LicenseValidator
 
 __all__ = [
     "LicenseValidator",
-    "LicenseValidationError", 
+    "LicenseValidationError",
     "SubscriptionManager",
     "PlanTier",
     "SubscriptionLimits",
@@ -24,5 +24,5 @@ __all__ = [
     "FeatureManager",
     "FeatureFlag",
     "FeatureNotAvailableError",
-    "feature_required"
+    "feature_required",
 ]

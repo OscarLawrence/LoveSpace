@@ -5,4 +5,9 @@ from .analyzer import MetricsAnalyzer
 from .collector import MetricsCollector
 from .tracker import PerformanceTracker
 
-__all__ = ["MetricsCollector", "MetricsAnalyzer", "PerformanceTracker", "MetricsAggregator"]
+__all__ = [
+    "MetricsCollector",
+    "MetricsAnalyzer",
+    "PerformanceTracker",
+    "MetricsAggregator",
+]

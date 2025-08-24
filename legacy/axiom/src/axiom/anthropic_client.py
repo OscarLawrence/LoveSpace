@@ -4,7 +4,6 @@ Direct Anthropic API client with formal contract enforcement.
 No SDK pollution - pure HTTP requests with coherence validation.
 """
 
-import asyncio
 import json
 import os
 from pathlib import Path
@@ -25,17 +24,21 @@ console = Console()
 
 class AnthropicMessage(BaseModel):
     """Anthropic API message format."""
+
     role: str = Field(..., description="Message role: 'user' or 'assistant'")
     content: str = Field(..., description="Message content")
 
 
 class AnthropicResponse(BaseModel):
     """Anthropic API response format."""
+
     content: list[dict[str, Any]] = Field(..., description="Response content blocks")
-    usage: dict[str, Any] = Field(..., description="Token usage statistics")  # Changed to Any to handle new fields
+    usage: dict[str, Any] = Field(
+        ..., description="Token usage statistics"
+    )  # Changed to Any to handle new fields
     model: str = Field(..., description="Model used for generation")
     stop_reason: str | None = Field(None, description="Reason for stopping")
-    
+
     class Config:
         extra = "allow"  # Allow extra fields we don't know about
 
@@ -43,7 +46,7 @@ class AnthropicResponse(BaseModel):
 class AnthropicClient:
     """
     Direct Anthropic API client with formal contract enforcement.
-    
+
     This client makes pure HTTP requests without any SDK pollution,
     ensuring complete transparency and coherence validation.
     """
@@ -64,8 +67,8 @@ class AnthropicClient:
             headers={
                 "x-api-key": self.api_key,
                 "content-type": "application/json",
-                "anthropic-version": "2023-06-01"
-            }
+                "anthropic-version": "2023-06-01",
+            },
         )
 
     @contract_enforced(APICallContract())
@@ -73,19 +76,19 @@ class AnthropicClient:
         self,
         messages: list[AnthropicMessage],
         max_tokens: int | None = None,
-        system_message: str | None = None
+        system_message: str | None = None,
     ) -> AnthropicResponse:
         """
         Send messages to Claude Sonnet 4 with formal contract enforcement.
-        
+
         Args:
             messages: List of messages in the conversation
             max_tokens: Maximum tokens to generate (optional)
             system_message: System message to set context (optional)
-            
+
         Returns:
             AnthropicResponse with the model's reply
-            
+
         Raises:
             ContractViolation: If any formal contract is violated
             httpx.HTTPError: If API request fails
@@ -105,11 +108,10 @@ class AnthropicClient:
             "model": self.model,
             "max_tokens": max_tokens or self.max_tokens,
             "messages": [
-                {"role": msg.role, "content": msg.content}
-                for msg in messages
-            ]
+                {"role": msg.role, "content": msg.content} for msg in messages
+            ],
         }
-        
+
         # Add system message if provided
         if system_message:
             request_data["system"] = system_message
@@ -117,8 +119,7 @@ class AnthropicClient:
         try:
             # Make API request
             response = await self.client.post(
-                f"{self.base_url}/messages",
-                json=request_data
+                f"{self.base_url}/messages", json=request_data
             )
             response.raise_for_status()
 
@@ -153,16 +154,18 @@ class AnthropicClient:
 async def create_anthropic_client() -> AnthropicClient:
     """
     Factory function to create an Anthropic client with contract validation.
-    
+
     Returns:
         Initialized AnthropicClient instance
-        
+
     Raises:
         ContractViolation: If client cannot be properly initialized
     """
     try:
         client = AnthropicClient()
-        console.print("[green]✓[/green] Anthropic client initialized with formal contracts")
+        console.print(
+            "[green]✓[/green] Anthropic client initialized with formal contracts"
+        )
         return client
     except Exception as e:
         console.print(f"[red]✗[/red] Failed to initialize Anthropic client: {e}")
@@ -172,23 +175,23 @@ async def create_anthropic_client() -> AnthropicClient:
 def load_system_message() -> str:
     """
     Load the system message from file.
-    
+
     Returns:
         System message content
-        
+
     Raises:
         ContractViolation: If system message file cannot be read
     """
     try:
         system_message_path = Path(__file__).parent / "system_message.txt"
-        with open(system_message_path, "r", encoding="utf-8") as f:
+        with open(system_message_path, encoding="utf-8") as f:
             content = f.read().strip()
-        
+
         if not content:
             raise ContractViolation("System message file is empty")
-            
+
         return content
-        
+
     except FileNotFoundError:
         raise ContractViolation(f"System message file not found: {system_message_path}")
     except Exception as e:

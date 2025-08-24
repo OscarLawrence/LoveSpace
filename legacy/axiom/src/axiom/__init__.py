@@ -21,14 +21,12 @@ __all__ = [
     # Core classes
     "AnthropicClient",
     "AnthropicMessage",
-
     # Contract system
     "FormalContract",
     "APICallContract",
     "ChatSessionContract",
     "CoherenceLevel",
     "ContractViolation",
-
     # Functions
     "create_anthropic_client",
     "contract_enforced",

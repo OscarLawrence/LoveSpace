@@ -1,11 +1,9 @@
 """Error handling and resilience patterns."""
 
-from typing import List
-
 from ..db_manager import Pattern
 
 
-def get_error_handling_patterns() -> List[Pattern]:
+def get_error_handling_patterns() -> list[Pattern]:
     """Get error handling patterns."""
     return [
         Pattern(
@@ -30,7 +28,7 @@ def retry_with_backoff(max_retries=3, backoff_factor=2):
 """,
             usage_context="Exponential backoff retry mechanism",
             dependencies=["time"],
-            success_count=32
+            success_count=32,
         ),
         Pattern(
             name="circuit_breaker",
@@ -67,7 +65,7 @@ class CircuitBreaker:
 """,
             usage_context="Circuit breaker pattern for fault tolerance",
             dependencies=["time"],
-            success_count=26
+            success_count=26,
         ),
         Pattern(
             name="error_collector",
@@ -106,7 +104,7 @@ class ErrorCollector:
 """,
             usage_context="Collect and manage multiple errors",
             dependencies=["time"],
-            success_count=20
+            success_count=20,
         ),
         Pattern(
             name="fallback_pattern",
@@ -123,7 +121,7 @@ def with_fallback(primary_func, fallback_func, exceptions=(Exception,)):
 """,
             usage_context="Fallback mechanism for failed operations",
             dependencies=[],
-            success_count=28
+            success_count=28,
         ),
         Pattern(
             name="timeout_context",
@@ -148,7 +146,7 @@ def timeout(seconds):
 """,
             usage_context="Timeout context manager for operations",
             dependencies=["signal", "contextlib"],
-            success_count=24
+            success_count=24,
         ),
         Pattern(
             name="error_context_manager",
@@ -167,6 +165,6 @@ def error_context(operation_name, reraise=True, default_return=None):
 """,
             usage_context="Context manager for error logging and handling",
             dependencies=["contextlib", "logging"],
-            success_count=22
-        )
+            success_count=22,
+        ),
     ]

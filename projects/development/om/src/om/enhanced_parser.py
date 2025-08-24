@@ -2,7 +2,7 @@
 """Enhanced parsing integration with Sphinx autodoc for improved context extraction."""
 
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 
 def integrate_sphinx_parser():
@@ -11,69 +11,72 @@ def integrate_sphinx_parser():
         from code_parser import create_enhanced_parser
 
         from knowledge.db_manager import ContextDB
-        
+
         # Initialize database
         db = ContextDB()
-        
+
         # Create enhanced parser
         sphinx_parser = create_enhanced_parser(db)
-        
+
         return sphinx_parser, db
-        
+
     except ImportError as e:
         raise RuntimeError(f"Failed to initialize Sphinx parser: {e}")
 
 
-def parse_with_sphinx(file_path: Path) -> Dict[str, Any]:
+def parse_with_sphinx(file_path: Path) -> dict[str, Any]:
     """Parse a single file with Sphinx for enhanced documentation extraction."""
     try:
         sphinx_parser, db = integrate_sphinx_parser()
-        
+
         # Parse file
         results = sphinx_parser.parse_file(file_path)
-        
+
         return {
             "status": "success",
             "results": results,
             "enhanced": True,
-            "parser_type": "sphinx_autodoc"
+            "parser_type": "sphinx_autodoc",
         }
-        
+
     except Exception as e:
         return {
-            "status": "error", 
+            "status": "error",
             "error": str(e),
             "enhanced": False,
-            "parser_type": "fallback"
+            "parser_type": "fallback",
         }
 
 
-def batch_parse_with_sphinx(workspace_root: Path) -> Dict[str, Any]:
+def batch_parse_with_sphinx(workspace_root: Path) -> dict[str, Any]:
     """Parse entire workspace with Sphinx for enhanced context extraction."""
     try:
         sphinx_parser, db = integrate_sphinx_parser()
-        
+
         python_files = list(workspace_root.rglob("*.py"))
-        
+
         total_functions = 0
         total_classes = 0
         total_patterns = 0
         errors = 0
-        
+
         for py_file in python_files:
             # Skip certain directories
-            if any(skip in str(py_file) for skip in ['.git', '__pycache__', '.venv', 'node_modules']):
+            if any(
+                skip in str(py_file)
+                for skip in [".git", "__pycache__", ".venv", "node_modules"]
+            ):
                 continue
-                
+
             results = sphinx_parser.parse_file(py_file)
-            
+
             if "error" in results:
                 errors += 1
             else:
                 total_functions += results.get("functions", 0)
                 total_classes += results.get("classes", 0)
                 total_patterns += results.get("patterns", 0)
-        
+
         return {
             "status": "success",
             "total_files": len(python_files),
@@ -82,12 +85,8 @@ def batch_parse_with_sphinx(workspace_root: Path) -> Dict[str, Any]:
             "patterns_extracted": total_patterns,
             "errors": errors,
             "enhancement_rate": f"{((len(python_files) - errors) / len(python_files) * 100):.1f}%",
-            "parser_type": "sphinx_autodoc_batch"
+            "parser_type": "sphinx_autodoc_batch",
         }
-        
+
     except Exception as e:
-        return {
-            "status": "error",
-            "error": str(e),
-            "parser_type": "batch_fallback"
-        }
+        return {"status": "error", "error": str(e), "parser_type": "batch_fallback"}

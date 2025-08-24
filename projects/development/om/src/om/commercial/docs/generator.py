@@ -1,25 +1,23 @@
 """Documentation generation core."""
 
-import json
 from pathlib import Path
-from typing import Any, Dict, List
 
 from ..license import PlanTier, SubscriptionManager
 
 
 class DocumentationGenerator:
     """Generates customer-specific documentation."""
-    
+
     def __init__(self, subscription_manager: SubscriptionManager = None):
         self.subscription_manager = subscription_manager or SubscriptionManager()
         self.templates_dir = Path(__file__).parent / "templates"
-        
+
     def generate_getting_started(self) -> str:
         """Generate getting started guide."""
         subscription = self.subscription_manager.load_subscription()
         tier = PlanTier(subscription["tier"])
         config = self.subscription_manager.get_plan_config(tier)
-        
+
         content = f"""# OM Commercial - Getting Started
 
 ## Welcome to OM Commercial {tier.value.title()}!
@@ -42,7 +40,7 @@ om find search <query>    # Search codebase
 
 #### Pro/Enterprise Features
 """
-        
+
         if config["features"].advanced_analysis:
             content += """
 ```bash
@@ -50,7 +48,7 @@ om code analyze --advanced    # Advanced analysis with insights
 om code quality --deep       # Deep quality analysis
 ```
 """
-        
+
         if config["features"].team_collaboration:
             content += """
 ```bash
@@ -58,7 +56,7 @@ om workspace share <email>   # Share workspace with team
 om session collaborate      # Start collaboration session
 ```
 """
-        
+
         content += """
 ### Quick Setup
 1. Ensure your license is activated
@@ -68,17 +66,21 @@ om session collaborate      # Start collaboration session
 
 ### Support
 """
-        
+
         if config["features"].priority_support:
-            content += "- **Priority Support:** support@om-commercial.com (24h response)\n"
+            content += (
+                "- **Priority Support:** support@om-commercial.com (24h response)\n"
+            )
         else:
-            content += "- **Standard Support:** support@om-commercial.com (72h response)\n"
-            
+            content += (
+                "- **Standard Support:** support@om-commercial.com (72h response)\n"
+            )
+
         content += "- **Documentation:** https://docs.om-commercial.com\n"
         content += "- **Community:** https://community.om-commercial.com\n"
-        
+
         return content
-    
+
     def _format_limit(self, limit: int) -> str:
         """Format usage limit for display."""
         return "Unlimited" if limit == -1 else str(limit)

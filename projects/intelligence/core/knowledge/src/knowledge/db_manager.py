@@ -177,7 +177,9 @@ class ContextDB:
 
         return int(result[0]) if result else 0
 
-    def find_classes(self, name: str | None = None, language: str | None = None) -> list[Class]:
+    def find_classes(
+        self, name: str | None = None, language: str | None = None
+    ) -> list[Class]:
         """Find classes by name or language."""
         conditions = []
         params = []
@@ -253,7 +255,9 @@ class ContextDB:
             params.append(language)
 
         where_clause = " AND ".join(conditions) if conditions else "1=1"
-        query = f"SELECT * FROM patterns WHERE {where_clause} ORDER BY success_count DESC"
+        query = (
+            f"SELECT * FROM patterns WHERE {where_clause} ORDER BY success_count DESC"
+        )
 
         results = self.conn.execute(query, params).fetchall()
 
@@ -285,7 +289,9 @@ class ContextDB:
         """
         self.conn.execute(query, [from_type, from_id, to_type, to_id, rel_type])
 
-    def get_relationships(self, from_type: str, from_id: int) -> list[tuple[str, int, str]]:
+    def get_relationships(
+        self, from_type: str, from_id: int
+    ) -> list[tuple[str, int, str]]:
         """Get all relationships from a code element."""
         query = """
         SELECT to_type, to_id, relationship_type

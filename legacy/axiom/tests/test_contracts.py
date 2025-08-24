@@ -59,7 +59,7 @@ class TestContractValidation:
         context = {
             "api_key": "test_key",
             "messages": ["test_message"],
-            "model": "claude-sonnet-4-20250514"
+            "model": "claude-sonnet-4-20250514",
         }
 
         # Should not raise exception
@@ -71,7 +71,7 @@ class TestContractValidation:
         context = {
             "api_key": None,  # This should cause failure
             "messages": ["test_message"],
-            "model": "claude-sonnet-4-20250514"
+            "model": "claude-sonnet-4-20250514",
         }
 
         with pytest.raises(ContractViolation):
@@ -86,9 +86,7 @@ class TestContractValidation:
 
         # Should succeed with valid inputs
         result = test_function(
-            api_key="test_key",
-            messages=["test"],
-            model="claude-sonnet-4-20250514"
+            api_key="test_key", messages=["test"], model="claude-sonnet-4-20250514"
         )
         assert result == "success"
 
@@ -97,15 +95,15 @@ class TestContractValidation:
             test_function(
                 api_key="",  # Empty string should fail len(api_key) > 0
                 messages=["test"],
-                model="claude-sonnet-4-20250514"
+                model="claude-sonnet-4-20250514",
             )
-            
+
         # Should fail with None api_key
         with pytest.raises(ContractViolation):
             test_function(
                 api_key=None,  # None should fail api_key is not None
                 messages=["test"],
-                model="claude-sonnet-4-20250514"
+                model="claude-sonnet-4-20250514",
             )
 
 
@@ -118,7 +116,7 @@ class TestContractSafety:
             "import os",
             "exec('malicious code')",
             "eval('dangerous')",
-            "__import__('os')"
+            "__import__('os')",
         ]
 
         context = {}

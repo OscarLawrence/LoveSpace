@@ -8,9 +8,9 @@ from .quality_gate import QualityGate
 from .reporter import CoverageReporter
 
 __all__ = [
-    'CoverageMetrics',
-    'QualityIssue',
-    'CoverageAnalyzer',
-    'QualityGate',
-    'CoverageReporter'
+    "CoverageMetrics",
+    "QualityIssue",
+    "CoverageAnalyzer",
+    "QualityGate",
+    "CoverageReporter",
 ]

@@ -1,11 +1,9 @@
 """CLI and command processing patterns."""
 
-from typing import List
-
 from ..db_manager import Pattern
 
 
-def get_cli_patterns() -> List[Pattern]:
+def get_cli_patterns() -> list[Pattern]:
     """Get CLI-related patterns."""
     return [
         Pattern(
@@ -22,11 +20,11 @@ def hello(name, count):
 """,
             usage_context="Command line interface with Click - argument and option parsing",
             dependencies=["click"],
-            success_count=25
+            success_count=25,
         ),
         Pattern(
             name="cli_group_commands",
-            language="python", 
+            language="python",
             pattern_type="cli",
             code_snippet="""
 @click.group()
@@ -43,7 +41,7 @@ def deploy():
 """,
             usage_context="CLI command groups for organizing related commands",
             dependencies=["click"],
-            success_count=20
+            success_count=20,
         ),
         Pattern(
             name="cli_validation",
@@ -62,7 +60,7 @@ def process(path):
 """,
             usage_context="Input validation for CLI parameters",
             dependencies=["click", "pathlib"],
-            success_count=15
+            success_count=15,
         ),
         Pattern(
             name="cli_progress_bars",
@@ -79,7 +77,7 @@ def process_items(items):
 """,
             usage_context="Progress indication for long-running CLI operations",
             dependencies=["click"],
-            success_count=12
+            success_count=12,
         ),
         Pattern(
             name="cli_config_management",
@@ -96,7 +94,7 @@ def cmd(ctx, config):
 """,
             usage_context="Configuration file management in CLI applications",
             dependencies=["click", "json", "pathlib"],
-            success_count=18
+            success_count=18,
         ),
         Pattern(
             name="cli_output_formatting",
@@ -113,7 +111,7 @@ def format_output(data, format_type='table'):
 """,
             usage_context="Multiple output formats for CLI tools",
             dependencies=["json", "tabulate"],
-            success_count=22
+            success_count=22,
         ),
         Pattern(
             name="cli_error_handling",
@@ -134,7 +132,7 @@ def safe_cli_operation(func):
 """,
             usage_context="Robust error handling for CLI applications",
             dependencies=["click", "sys"],
-            success_count=30
+            success_count=30,
         ),
         Pattern(
             name="cli_environment_detection",
@@ -162,6 +160,6 @@ def detect_environment():
 """,
             usage_context="Environment detection for adaptive CLI behavior",
             dependencies=["os", "pathlib"],
-            success_count=14
-        )
+            success_count=14,
+        ),
     ]

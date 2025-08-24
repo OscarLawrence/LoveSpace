@@ -193,7 +193,9 @@ class ProtocolBuilder:
         return self
 
     def file_spec(
-        self, path: str, operation: Literal["read", "write", "create", "delete", "move", "copy"]
+        self,
+        path: str,
+        operation: Literal["read", "write", "create", "delete", "move", "copy"],
     ) -> "ProtocolBuilder":
         self.task.spec = FileSpec(path=path, operation=operation)
         return self
@@ -204,9 +206,13 @@ class ProtocolBuilder:
         self.task.spec = QuerySpec(query_type=query_type, table=table)
         return self
 
-    def add_param(self, name: str, type: str, required: bool = True) -> "ProtocolBuilder":
+    def add_param(
+        self, name: str, type: str, required: bool = True
+    ) -> "ProtocolBuilder":
         if isinstance(self.task.spec, CodeSpec):
-            self.task.spec.params.append(Parameter(name=name, type=type, required=required))
+            self.task.spec.params.append(
+                Parameter(name=name, type=type, required=required)
+            )
         return self
 
     def returns(self, type: str, nullable: bool = False) -> "ProtocolBuilder":
