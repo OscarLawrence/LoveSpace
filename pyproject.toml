@@ -37,6 +37,7 @@ members = [
     "projects/interfaces/axiom/backend",
     "projects/trading/momo-funding",
     "projects/trading/revenue",
+    "projects/tools/docs",
 ]
 
 [tool.ruff]

@@ -19,6 +19,7 @@ resolution-markers = [
 members = [
     "axiom",
     "code-parser",
+    "docs",
     "docs-parser",
     "knowledge",
     "lovespace",
@@ -695,6 +696,23 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/0c/15/2a4d27468021faee688ba72de1a780ceed9f8e70c1354907bfff8a609a4e/docling_parse-4.2.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a1a73dcaf6cad4e379f85f0f9aa53c22a301cf31534db49a6422834ecd66144d", size = 15128822 },
     { url = "https://files.pythonhosted.org/packages/55/f9/91f45fdffe04daa8f9540070ab83438957adac29552a6237f0ebe87c3f13/docling_parse-4.2.2-cp313-cp313-win_amd64.whl", hash = "sha256:c23c32811ce19d9a3b5ba670c6877c736e81373b5de12852bfba1949b35000bc", size = 16053182 },
     { url = "https://files.pythonhosted.org/packages/94/2e/fac52c90abad22c57d282447c04511cb4eafb0dc4853280b521b46575fd1/docling_parse-4.2.2-pp311-pypy311_pp73-win_amd64.whl", hash = "sha256:5feda6387f1f4168998636ed4830dba4d300e59803035e73fc9b069b6129a5f0", size = 17888605 },
+]
+
+[[package]]
+name = "docs"
+version = "0.1.0"
+source = { editable = "projects/tools/docs" }
+
+[package.optional-dependencies]
+dev = [
+    { name = "pytest" },
+    { name = "pytest-cov" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.0.0" },
+    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=4.0.0" },
 ]
 
 [[package]]
